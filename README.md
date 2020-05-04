@@ -1,7 +1,8 @@
 # Introduction 
 D301 team project 
 
-# Contribute
+# Contributors
 1. Hashim Khanzada
 2. Hayden Lewis
 3. Zac Higgins
+4. David Rostron
