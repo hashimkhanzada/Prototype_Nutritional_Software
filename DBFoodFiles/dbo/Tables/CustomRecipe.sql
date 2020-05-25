@@ -6,5 +6,5 @@
     [RecipeDescription] NVARCHAR(256) NOT NULL, 
     [RecipeName] NVARCHAR(50) NOT NULL, 
     [ServingSize] NVARCHAR(50) NOT NULL, 
-    [UserId] NCHAR(10) NOT NULL
+    [UserId] INT NOT NULL
 )
