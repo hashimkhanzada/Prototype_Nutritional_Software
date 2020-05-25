@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="a8834299-41f9-466d-880e-a3f632ece09e" ChangeDateTime="05/24/2020 23:41:25">
+    <Property Name="ElementName" Value="[dbo].[User].[Username]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="89a68a3b-adf3-42a3-bf21-2414d42ad279" ChangeDateTime="05/24/2020 23:46:46">
+    <Property Name="ElementName" Value="[dbo].[CalorieCount].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CalorieCount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CountID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8d598044-f748-47b4-94b3-7b995c12ac24" ChangeDateTime="05/24/2020 23:46:54">
+    <Property Name="ElementName" Value="[dbo].[User].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dbb76919-2259-4148-b2ea-dba85cc798b3" ChangeDateTime="05/24/2020 23:48:55">
+    <Property Name="ElementName" Value="[dbo].[CustomRecipe].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CustomRecipe]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RecipeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8fb0d784-f695-433b-938b-ff6992d8df61" ChangeDateTime="05/24/2020 23:49:07">
+    <Property Name="ElementName" Value="[dbo].[CalorieCount].[CountID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CalorieCount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CountId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="93c231e0-c9dc-4df7-8189-165aa4cd0c25" ChangeDateTime="05/24/2020 23:49:09">
+    <Property Name="ElementName" Value="[dbo].[CalorieCount].[UserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CalorieCount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8d120d27-60f9-4186-8905-071154125913" ChangeDateTime="05/24/2020 23:49:14">
+    <Property Name="ElementName" Value="[dbo].[User].[UserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="365dd009-6fb9-4497-a451-cd009e4aed34" ChangeDateTime="05/24/2020 23:50:13">
+    <Property Name="ElementName" Value="[dbo].[CustomRecipe].[RecipeName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CustomRecipe]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Recipe" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0f0a3529-b670-46eb-9da6-0a110da79821" ChangeDateTime="05/24/2020 23:53:05">
+    <Property Name="ElementName" Value="[dbo].[CustomFood].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CustomFood]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FoodId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="064e10e0-9cf8-4a43-bcc1-2a88a50412c0" ChangeDateTime="05/24/2020 23:57:51">
+    <Property Name="ElementName" Value="[dbo].[CustomRecipe].[Recipe]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CustomRecipe]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RecipeDescription" />
+  </Operation>
+</Operations>
