@@ -65,8 +65,12 @@
     <Build Include="dbo\Tables\CalorieCount.sql" />
     <Build Include="dbo\Tables\CustomRecipe.sql" />
     <Build Include="dbo\Tables\CustomFood.sql" />
+    <Build Include="dbo\Tables\NzFoodFiles.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DBFoodFiles.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\DBFoodFiles.publish.xml" />
   </ItemGroup>
 </Project>
