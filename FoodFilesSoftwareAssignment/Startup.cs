@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using FoodFilesSoftwareAssignment.Data;
 
 namespace FoodFilesSoftwareAssignment
 {
@@ -25,13 +24,7 @@ namespace FoodFilesSoftwareAssignment
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddRazorPages();
-
-            services.AddDbContext<UserContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("UserContext")));
-
-            
+            services.AddRazorPages();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +46,7 @@ namespace FoodFilesSoftwareAssignment
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
