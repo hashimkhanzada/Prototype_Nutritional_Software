@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodFilesSoftwareAssignment
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBFoodFiles", "DBFoodFiles\DBFoodFiles.sqlproj", "{BB1EC2E1-FFC2-4B19-A17B-199B95C5F2A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{A18108BA-D87C-4F89-AC6B-4145A9BF1AA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{A18108BA-D87C-4F89-AC6B-4145A9BF1AA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
