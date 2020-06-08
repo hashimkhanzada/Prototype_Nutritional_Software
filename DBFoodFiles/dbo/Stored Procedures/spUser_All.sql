@@ -4,7 +4,7 @@ begin
 
 	set nocount on;
 
-	select [UserId], [UserName], [Email], [Height], [Weight], [Age], [FirstName], [LastName]
+	select [Id], [UserName], [Email], [Height], [Weight], [Age], [FirstName], [LastName]
 	from dbo.[User];
 
 end

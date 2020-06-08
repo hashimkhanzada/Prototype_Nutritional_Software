@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Data
 {
-    class UserData
+    public class UserData : IUserData
     {
         private readonly IDataAccess _dataAccess;
         private readonly ConnectionStringData _connectionString;
@@ -27,12 +27,12 @@ namespace DataLibrary.Data
                                                             _connectionString.SqlConnectionName);
         }
 
-        public async Task<UserModel> GetUserByUserId(string UserId) 
+        public async Task<UserModel> GetUserByUserId(string Id)
         {
             var recs = await _dataAccess.LoadData<UserModel, dynamic>("dbo.spUser_GetByUserId", //select user based on who's logged in
                 new
                 {
-                    Id = UserId
+                    Id
                 },
                 _connectionString.SqlConnectionName);
 
@@ -43,16 +43,17 @@ namespace DataLibrary.Data
         {
             DynamicParameters p = new DynamicParameters();
 
-            p.Add("UserId", user.UserName);
-            p.Add("UserId", user.Email);
-            p.Add("UserId", user.Height);
-            p.Add("UserId", user.Weight);
-            p.Add("UserId", user.Age);
-            p.Add("UserId", user.FirstName);
-            p.Add("UserId", user.LastName);
+            p.Add("Id", user.Id);
+            p.Add("UserName", user.UserName);
+            p.Add("Email", user.Email);
+            p.Add("Height", user.Height);
+            p.Add("Weight", user.Weight);
+            p.Add("Age", user.Age);
+            p.Add("FirstName", user.FirstName);
+            p.Add("LastName", user.LastName);
 
 
-            await _dataAccess.SaveData("spUser_Insert", //insert statement
+            await _dataAccess.SaveData("dbo.spUser_Insert", //insert statement
                                        p,
                                        _connectionString.SqlConnectionName);
         }

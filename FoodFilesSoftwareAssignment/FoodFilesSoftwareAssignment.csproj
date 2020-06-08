@@ -28,6 +28,12 @@
     <ProjectReference Include="..\DBFoodFiles\DBFoodFiles.sqlproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="DataLibrary">
+      <HintPath>DataLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 
 
 </Project>
