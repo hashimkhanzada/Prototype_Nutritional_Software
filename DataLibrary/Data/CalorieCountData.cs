@@ -19,24 +19,24 @@ namespace DataLibrary.Data
             _connectionString = connectionString;
         }
 
-        public async Task<int> CreateCalorieCount(CalorieCountModel calorieCount)
-        {
-            DynamicParameters p = new DynamicParameters();
+        //public async Task<int> CreateCalorieCount(CalorieCountModel calorieCount)
+        //{
+        //    DynamicParameters p = new DynamicParameters();
 
-            p.Add("CountId", calorieCount.CountId);
-            p.Add("UserId", calorieCount.Id);
-            p.Add("CalorieGoal", calorieCount.CalorieGoal);
-            p.Add("Date", calorieCount.Date);
-            p.Add("CaloriesConsumed", calorieCount.CaloriesConsumed);
-            p.Add("RecipeId", calorieCount.RecipeId);
-            p.Add("FoodId", calorieCount.FoodId);
+        //    p.Add("CountId", calorieCount.CountId);
+        //    p.Add("UserId", calorieCount.Id);
+        //    p.Add("CalorieGoal", calorieCount.CalorieGoal);
+        //    p.Add("Date", calorieCount.Date);
+        //    p.Add("CaloriesConsumed", calorieCount.CaloriesConsumed);
+        //    p.Add("RecipeId", calorieCount.RecipeId);
+        //    p.Add("FoodId", calorieCount.FoodId);
 
-            await _dataAccess.SaveData("", //insert statement
-                                       p,
-                                       _connectionString.SqlConnectionName);
+        //    await _dataAccess.SaveData("", //insert statement
+        //                               p,
+        //                               _connectionString.SqlConnectionName);
 
-            return p.Get<int>("Id");
-        }
+        //    return p.Get<int>("Id");
+        //}
 
         //public Task<int> 
 
