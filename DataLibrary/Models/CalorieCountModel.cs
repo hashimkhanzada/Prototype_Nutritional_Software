@@ -11,7 +11,7 @@ namespace DataLibrary.Models
         public int CalorieGoal { get; set; }
         public DateTime Date { get; set; }
         public int CaloriesConsumed { get; set; }
-        public int RecipeId { get; set; }
-        public int FoodId { get; set; }
+        public int UserRecipeId { get; set; }
+        public int UserFoodId { get; set; }
     }
 }

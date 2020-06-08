@@ -14,5 +14,8 @@ namespace DataLibrary.Models
         public int Age { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Gender { get; set; }
+        public string ActivityLevel { get; set; }
+        public string MedicalConditions { get; set; }
     }
 }

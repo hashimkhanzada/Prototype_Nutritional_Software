@@ -46,11 +46,14 @@ namespace DataLibrary.Data
             p.Add("Id", user.Id);
             p.Add("UserName", user.UserName);
             p.Add("Email", user.Email);
+            p.Add("FirstName", user.FirstName);
+            p.Add("LastName", user.LastName);
             p.Add("Height", user.Height);
             p.Add("Weight", user.Weight);
             p.Add("Age", user.Age);
-            p.Add("FirstName", user.FirstName);
-            p.Add("LastName", user.LastName);
+            p.Add("Gender", user.Gender);
+            p.Add("ActivityLevel", user.ActivityLevel);
+            p.Add("MedicalConditions", user.MedicalConditions);
 
 
             await _dataAccess.SaveData("dbo.spUser_Insert", //insert statement

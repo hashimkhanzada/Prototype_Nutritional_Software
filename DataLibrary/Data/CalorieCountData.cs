@@ -24,7 +24,7 @@ namespace DataLibrary.Data
             DynamicParameters p = new DynamicParameters();
 
             p.Add("CountId", calorieCount.CountId);
-            p.Add("UserId", calorieCount.UserId);
+            p.Add("UserId", calorieCount.Id);
             p.Add("CalorieGoal", calorieCount.CalorieGoal);
             p.Add("Date", calorieCount.Date);
             p.Add("CaloriesConsumed", calorieCount.CaloriesConsumed);

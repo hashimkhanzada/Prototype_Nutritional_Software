@@ -6,13 +6,16 @@
 	@Weight int,
 	@Age int,
 	@FirstName nvarchar(50),
-	@LastName nvarchar(50)
+	@LastName nvarchar(50),
+	@Gender nvarchar(10),
+	@ActivityLevel nvarchar(50),
+	@MedicalConditions nvarchar(MAX)
 AS
 begin
 
 	set nocount on;
 
-	insert into dbo.[User](Id, UserName, Email, Height, [Weight], Age, FirstName, LastName)
-	values (@Id, @UserName, @Email, @Height, @Weight, @Age, @FirstName, @LastName);
+	insert into dbo.[User](Id, UserName, Email, Height, [Weight], Age, FirstName, LastName, Gender, ActivityLevel, MedicalConditions)
+	values (@Id, @UserName, @Email, @Height, @Weight, @Age, @FirstName, @LastName, @Gender, @ActivityLevel, @MedicalConditions);
 
 end

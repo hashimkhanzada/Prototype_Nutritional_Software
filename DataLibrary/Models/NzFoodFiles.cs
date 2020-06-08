@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DataLibrary.Models
 {
-    public class CustomFoodModel
+    public class NzFoodFiles
     {
-        public int CustomFoodId { get; set; }
+        public string FoodId { get; set; }
         public string ShortName { get; set; }
         public int ServingSize { get; set; }
         public int Energy { get; set; }
