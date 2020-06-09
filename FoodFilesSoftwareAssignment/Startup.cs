@@ -33,6 +33,7 @@ namespace FoodFilesSoftwareAssignment
             });
             services.AddSingleton<IDataAccess, SqlDb>();
             services.AddSingleton<IUserData, UserData>();
+            services.AddSingleton<ICalorieCountData, CalorieCountData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

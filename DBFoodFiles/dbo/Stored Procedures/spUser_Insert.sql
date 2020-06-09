@@ -9,7 +9,7 @@
 	@LastName nvarchar(50),
 	@Gender nvarchar(10),
 	@ActivityLevel nvarchar(50),
-	@MedicalConditions nvarchar(MAX)
+	@MedicalConditions nvarchar(max)
 AS
 begin
 

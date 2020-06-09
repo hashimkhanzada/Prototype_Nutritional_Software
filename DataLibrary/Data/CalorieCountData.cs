@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Data
 {
-    public class CalorieCountData
+    public class CalorieCountData : ICalorieCountData
     {
         private readonly IDataAccess _dataAccess;
         private readonly ConnectionStringData _connectionString;
@@ -19,26 +19,20 @@ namespace DataLibrary.Data
             _connectionString = connectionString;
         }
 
-        //public async Task<int> CreateCalorieCount(CalorieCountModel calorieCount)
-        //{
-        //    DynamicParameters p = new DynamicParameters();
+        public async Task CreateCalorieCount(CalorieCountModel calorieCount)
+        {
+            DynamicParameters p = new DynamicParameters();
 
-        //    p.Add("CountId", calorieCount.CountId);
-        //    p.Add("UserId", calorieCount.Id);
-        //    p.Add("CalorieGoal", calorieCount.CalorieGoal);
-        //    p.Add("Date", calorieCount.Date);
-        //    p.Add("CaloriesConsumed", calorieCount.CaloriesConsumed);
-        //    p.Add("RecipeId", calorieCount.RecipeId);
-        //    p.Add("FoodId", calorieCount.FoodId);
+            p.Add("UserId", calorieCount.UserId);
+            p.Add("CalorieGoal", calorieCount.CalorieGoal);
+            p.Add("Date", calorieCount.Date);
 
-        //    await _dataAccess.SaveData("", //insert statement
-        //                               p,
-        //                               _connectionString.SqlConnectionName);
+            await _dataAccess.SaveData("dbo.spCalorieCount_InsertInitialUserData", //insert statement
+                                       p,
+                                       _connectionString.SqlConnectionName);
+        }
 
-        //    return p.Get<int>("Id");
-        //}
 
-        //public Task<int> 
 
     }
 }

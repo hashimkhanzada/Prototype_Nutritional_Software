@@ -4,7 +4,7 @@
     [UserId] NVARCHAR(450) NOT NULL, 
     [CalorieGoal] INT NOT NULL, 
     [Date] DATETIME2 NOT NULL, 
-    [CaloriesConsumed] INT NOT NULL, 
+    [CaloriesConsumed] INT NULL, 
     [UserRecipeId] INT NULL, 
     [UserFoodId] INT NULL, 
     CONSTRAINT [FK_UserId_CalorieCount_User] FOREIGN KEY (UserId) REFERENCES [User](Id), 
