@@ -12,7 +12,27 @@ namespace FoodFilesSoftwareAssignment
 {
     public class DashBoardModel : IdentityUserDetails
     {
+        private readonly IUserData _userData;
+        private readonly ICalorieCountData _calorieCountData;
 
+        public CalorieCountModel CalorieCount { get; set; }
         
+
+        public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData)
+        {
+            _userData = userData;
+            _calorieCountData = calorieCountData;
+        }
+
+        public async Task<IActionResult> OnGet()
+        {
+            CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, TodayDate);
+
+
+            return Page();
+        }
+
+
+
     }
 }

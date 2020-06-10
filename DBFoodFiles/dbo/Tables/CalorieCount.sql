@@ -3,7 +3,7 @@
 	[CountId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [UserId] NVARCHAR(450) NOT NULL, 
     [CalorieGoal] INT NOT NULL, 
-    [Date] DATETIME2 NOT NULL, 
+    [Date] DATE NOT NULL, 
     [CaloriesConsumed] INT NULL, 
     [UserRecipeId] INT NULL, 
     [UserFoodId] INT NULL, 

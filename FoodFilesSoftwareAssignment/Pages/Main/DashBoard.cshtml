@@ -5,3 +5,18 @@
 }
 
 <h1>DashBoard</h1>
+
+@if (Model.CalorieCount is null)
+{
+    <h4>The record are empty</h4>
+}
+else
+{
+    <h4>@Model.CalorieCount.UserId</h4>
+    <h4>@Model.CalorieCount.CountId</h4>
+    <h4>@Model.CalorieCount.Date</h4>
+    <h4>@Model.CalorieCount.UserFoodId</h4>
+    <h4>@Model.CalorieCount.UserRecipeId</h4>
+    <h4>@Model.CalorieCount.CalorieGoal</h4>
+    <h4>@Model.CalorieCount.CaloriesConsumed</h4>
+}

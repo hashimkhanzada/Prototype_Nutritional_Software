@@ -3,6 +3,7 @@ using DataLibrary.Db;
 using DataLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,6 +33,18 @@ namespace DataLibrary.Data
                                        _connectionString.SqlConnectionName);
         }
 
+        public async Task<CalorieCountModel> GetCalorieCountByIdAndDate(string UserId, DateTime Date)
+        {
+            var recs = await _dataAccess.LoadData<CalorieCountModel, dynamic>("dbo.spCalorieCount_GetByUserId_ByDate",
+                new
+                {
+                    Id = UserId,
+                    Date
+                },
+                _connectionString.SqlConnectionName);
+
+            return recs.FirstOrDefault();
+        }
 
 
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataLibrary.Models
 {
-    public class NzFoodFiles
+    public class NzFoodFilesModel
     {
         public string FoodId { get; set; }
         public string ShortName { get; set; }

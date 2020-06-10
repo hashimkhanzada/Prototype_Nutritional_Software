@@ -22,12 +22,12 @@ namespace DataLibrary.Data
 
         public Task<List<UserModel>> GetUser()
         {
-            return _dataAccess.LoadData<UserModel, dynamic>("dbo.spUser_All", //select * from user table- stored procedure
+            return _dataAccess.LoadData<UserModel, dynamic>("dbo.spUser_All", //select * from user table
                                                             new { },
                                                             _connectionString.SqlConnectionName);
         }
 
-        public async Task<UserModel> GetUserByUserId(string Id)
+        public async Task GetUserByUserId(string Id)
         {
             var recs = await _dataAccess.LoadData<UserModel, dynamic>("dbo.spUser_GetByUserId", //select user based on who's logged in
                 new
@@ -35,8 +35,6 @@ namespace DataLibrary.Data
                     Id
                 },
                 _connectionString.SqlConnectionName);
-
-            return recs.FirstOrDefault();
         }
 
         public async Task CreateUserDetails(UserModel user)

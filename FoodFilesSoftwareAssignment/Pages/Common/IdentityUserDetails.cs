@@ -19,5 +19,12 @@ namespace FoodFilesSoftwareAssignment.Pages.Common
                 return User.FindFirstValue(ClaimTypes.Name);
             }
         }
+        public DateTime TodayDate
+        {
+            get
+            {
+                return DateTime.Today;
+            }
+        }
     }
 }
