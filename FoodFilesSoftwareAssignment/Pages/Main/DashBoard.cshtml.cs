@@ -16,7 +16,9 @@ namespace FoodFilesSoftwareAssignment
         private readonly ICalorieCountData _calorieCountData;
 
         public CalorieCountModel CalorieCount { get; set; }
-        
+
+        [BindProperty]
+        public CalorieCountModel SelectedDate { get; set; }
 
         public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData)
         {
@@ -26,12 +28,24 @@ namespace FoodFilesSoftwareAssignment
 
         public async Task<IActionResult> OnGet()
         {
-            CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, TodayDate);
+            //gets data based on today's date
+            CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, TodayDate); //gets data from the caloriecount table based on userId and date, then inserts it into CalorieCount (instance of caloriecount model)
 
+            return Page(); //refresh
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return Page();
+            }
+
+            //gets data based on date specified in the calendar
+            CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, SelectedDate.Date);
 
             return Page();
         }
-
 
 
     }

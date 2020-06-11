@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Data
 {
-    public interface IUserData
+    public interface IUserData //methods are called from this interface instead of the UserData class - dependency injection
     {
         Task CreateUserDetails(UserModel user);
         Task<List<UserModel>> GetUser();

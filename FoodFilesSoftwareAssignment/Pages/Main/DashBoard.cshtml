@@ -12,7 +12,7 @@
 }
 else
 {
-    <h4>@Model.CalorieCount.UserId</h4>
+    <h4>@Model.CalorieCount.UserId</h4> //this is just to display the data, was just used to test outputs
     <h4>@Model.CalorieCount.CountId</h4>
     <h4>@Model.CalorieCount.Date</h4>
     <h4>@Model.CalorieCount.UserFoodId</h4>
@@ -20,3 +20,15 @@ else
     <h4>@Model.CalorieCount.CalorieGoal</h4>
     <h4>@Model.CalorieCount.CaloriesConsumed</h4>
 }
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="SelectedDate.Date" class="control-label"></label>
+        <input asp-for="SelectedDate.Date" class="form-control" />
+        <span asp-validation-for="SelectedDate.Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Search By Date" class="btn btn-primary" />
+    </div>
+</form>
+

@@ -27,11 +27,15 @@ namespace FoodFilesSoftwareAssignment
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSingleton(new ConnectionStringData
+
+            //dependency injection configuration
+            services.AddSingleton(new ConnectionStringData 
             {
-                SqlConnectionName = "Default"
+                SqlConnectionName = "Default" //initializes sql connection name to default
             });
-            services.AddSingleton<IDataAccess, SqlDb>();
+
+            //each time an interface is created in the class library, it'll need to be configured here
+            services.AddSingleton<IDataAccess, SqlDb>(); //when an instance of IDataAccess is called, it gives sqldb back
             services.AddSingleton<IUserData, UserData>();
             services.AddSingleton<ICalorieCountData, CalorieCountData>();
         }

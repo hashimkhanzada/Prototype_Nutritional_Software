@@ -28,12 +28,12 @@ namespace DataLibrary.Data
             p.Add("CalorieGoal", calorieCount.CalorieGoal);
             p.Add("Date", calorieCount.Date);
 
-            await _dataAccess.SaveData("dbo.spCalorieCount_InsertInitialUserData", //insert statement
+            await _dataAccess.SaveData("dbo.spCalorieCount_InsertInitialUserData", //Inserts the parameter data (data retrieved from the Identity(EF Core) database) into the caloriecount table
                                        p,
                                        _connectionString.SqlConnectionName);
         }
 
-        public async Task<CalorieCountModel> GetCalorieCountByIdAndDate(string UserId, DateTime Date)
+        public async Task<CalorieCountModel> GetCalorieCountByIdAndDate(string UserId, DateTime Date) //gets calorie count data based on logged in user, and date specified
         {
             var recs = await _dataAccess.LoadData<CalorieCountModel, dynamic>("dbo.spCalorieCount_GetByUserId_ByDate",
                 new
