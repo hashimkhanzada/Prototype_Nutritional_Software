@@ -25,6 +25,9 @@ namespace FoodFilesSoftwareAssignment.Areas.Identity
                     options.SignIn.RequireConfirmedAccount = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredLength = 5;
                 })
                     .AddEntityFrameworkStores<FFSA_AuthDBContext>();
             });
