@@ -8,17 +8,59 @@
 
 @if (Model.CalorieCount is null)
 {
-    <h4>The record are empty</h4>
+    <h4>The records are empty</h4>
 }
 else
 {
-    <h4>@Model.CalorieCount.UserId</h4> //this is just to display the data, was just used to test outputs
+    <h4>Calorie Count</h4>
+    <h4>@Model.CalorieCount.UserId</h4>
+    //this is just to display the data, was just used to test outputs
     <h4>@Model.CalorieCount.CountId</h4>
     <h4>@Model.CalorieCount.Date</h4>
     <h4>@Model.CalorieCount.UserFoodId</h4>
     <h4>@Model.CalorieCount.UserRecipeId</h4>
     <h4>@Model.CalorieCount.CalorieGoal</h4>
     <h4>@Model.CalorieCount.CaloriesConsumed</h4>
+}
+
+@if (Model.UserFood is null)
+{
+    <h4>The records are empty</h4>
+}
+else
+{
+    <h4>User Food</h4>
+
+    @foreach (var userFood in Model.UserFood)
+    {
+        <tr>
+            <td>@userFood.UserId</td>
+            <td>@userFood.FoodId</td>
+            <td>@userFood.UserFoodId</td>
+            <td>@userFood.CustomFoodId</td>
+            <td>@userFood.Date</td>
+        </tr>
+       
+    }
+
+}
+
+@if (Model.NzFoodFiles is null)
+{
+    <h4>The records are empty</h4>
+}
+else
+{
+    <h4>Nz Food</h4>
+
+    @foreach (var food in Model.NzFoodFiles)
+    {
+        <tr>
+            <td>@food.FoodId</td>
+            <td>@food.ShortName</td>
+            <td>@food.Energy</td>
+        </tr>
+    }
 }
 
 <form method="post">

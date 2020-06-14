@@ -73,6 +73,8 @@
     <Build Include="dbo\Tables\UserFood.sql" />
     <Build Include="dbo\Stored Procedures\spCalorieCount_InsertInitialUserData.sql" />
     <Build Include="dbo\Stored Procedures\spCalorieCount_GetByUserId_ByDate.sql" />
+    <Build Include="dbo\Stored Procedures\spUserFood_GetByUserId_ByDate.sql" />
+    <Build Include="dbo\Stored Procedures\spNzFood_GetFood_ByFoodId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DBFoodFiles.refactorlog" />
