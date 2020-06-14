@@ -38,6 +38,8 @@ namespace FoodFilesSoftwareAssignment
             services.AddSingleton<IDataAccess, SqlDb>(); //when an instance of IDataAccess is called, it gives sqldb back
             services.AddSingleton<IUserData, UserData>();
             services.AddSingleton<ICalorieCountData, CalorieCountData>();
+            services.AddSingleton<IUserFoodData, UserFoodData>();
+            services.AddSingleton<INzFoodFilesData, NzFoodFilesData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
