@@ -19,6 +19,14 @@ namespace DataLibrary.Data
             _connectionString = connectionString;
         }
 
+        public Task<List<NzFoodFilesModel>> GetAllFood()
+        {
+            return _dataAccess.LoadData<NzFoodFilesModel, dynamic>(
+                "spNzFood_GetAll",
+                new { },
+                _connectionString.SqlConnectionName);
+        }
+
         public Task<List<NzFoodFilesModel>> GetNzFoodByFoodId(string FoodId)
         {
             return _dataAccess.LoadData<NzFoodFilesModel, dynamic>("dbo.spNzFood_GetFood_ByFoodId",
