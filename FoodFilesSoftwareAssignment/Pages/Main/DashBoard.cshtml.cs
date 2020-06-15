@@ -17,6 +17,8 @@ namespace FoodFilesSoftwareAssignment
         private readonly IUserFoodData _userFoodData;
         private readonly INzFoodFilesData _nzFoodFilesData;
 
+
+
         public CalorieCountModel CalorieCount { get; set; }
 
         [BindProperty]
@@ -27,6 +29,8 @@ namespace FoodFilesSoftwareAssignment
 
         [BindProperty]
         public CalorieCountModel SelectedDate { get; set; }
+
+
 
         public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
         {

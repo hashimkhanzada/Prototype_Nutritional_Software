@@ -7,5 +7,7 @@ namespace DataLibrary.Data
     public interface INzFoodFilesData
     {
         Task<List<NzFoodFilesModel>> GetNzFoodByFoodId(string FoodId);
+
+        Task<List<NzFoodFilesModel>> GetAllFood();
     }
 }
