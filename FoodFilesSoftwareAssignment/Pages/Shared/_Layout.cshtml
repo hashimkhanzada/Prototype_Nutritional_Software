@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FoodFilesSoftwareAssignment</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <link rel="stylesheet" runat="server" href="~/css/site.css" />
 </head>
 <body>
     <header>
@@ -17,6 +17,17 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        //Add links to additional view/pages here so they are only visible to authenticated users
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Main/DashBoard" title="Dashboard">Dashboard</a>
+                    }
+                    else
+                    {
+                        //No Links visible unless the user is authenticated
+                    }
+                }
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     @*display the username of an authenticated user*@
                     <partial name="_LoginPartial" />

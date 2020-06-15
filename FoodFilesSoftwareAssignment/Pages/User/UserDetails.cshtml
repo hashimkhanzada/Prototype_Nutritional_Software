@@ -1,67 +1,77 @@
 ﻿@page
 @model FoodFilesSoftwareAssignment.CreateUserModel
 @{
-    ViewData["Title"] = "UserDetails";
+    ViewData["Title"] = "User Details";
 }
 
-<h1>Register</h1>
+<h1>Personal Details</h1>
 
 <form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="InitialUserCalories.Date" class="control-label"></label>
-        <input asp-for="InitialUserCalories.Date" class="form-control" />
-        <span asp-validation-for="InitialUserCalories.Date" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.FirstName" class="control-label"></label>
-        <input asp-for="UserDetails.FirstName" class="form-control" />
-        <span asp-validation-for="UserDetails.FirstName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.LastName" class="control-label"></label>
-        <input asp-for="UserDetails.LastName" class="form-control" />
-        <span asp-validation-for="UserDetails.LastName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.Email" class="control-label"></label>
-        <input asp-for="UserDetails.Email" class="form-control" />
-        <span asp-validation-for="UserDetails.Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.Gender" class="control-label"></label>
-        <input asp-for="UserDetails.Gender" class="form-control" />
-        <span asp-validation-for="UserDetails.Gender" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.Age" class="control-label"></label>
-        <input asp-for="UserDetails.Age" class="form-control" />
-        <span asp-validation-for="UserDetails.Age" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.Height" class="control-label"></label>
-        <input asp-for="UserDetails.Height" class="form-control" />
-        <span asp-validation-for="UserDetails.Height" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.Weight" class="control-label"></label>
-        <input asp-for="UserDetails.Weight" class="form-control" />
-        <span asp-validation-for="UserDetails.Weight" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.ActivityLevel" class="control-label"></label>
-        <input asp-for="UserDetails.ActivityLevel" class="form-control" />
-        <span asp-validation-for="UserDetails.ActivityLevel" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserDetails.MedicalConditions" class="control-label"></label>
-        <input asp-for="UserDetails.MedicalConditions" class="form-control" />
-        <span asp-validation-for="UserDetails.MedicalConditions" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Register Details" class="btn btn-primary" />
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @*<div class="form-group">
+            <label asp-for="InitialUserCalories.Date" class="control-label"></label>
+            <input asp-for="InitialUserCalories.Date" class="form-control" />
+            <span asp-validation-for="InitialUserCalories.Date" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <label asp-for="UserDetails.FirstName" class="control-label font-weight-bold">First Name:</label>
+                    <input asp-for="UserDetails.FirstName" class="form-control" />
+                    <span asp-validation-for="UserDetails.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserDetails.LastName" class="control-label font-weight-bold">Last Name:</label>
+                    <input asp-for="UserDetails.LastName" class="form-control" />
+                    <span asp-validation-for="UserDetails.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserDetails.Email" class="control-label font-weight-bold">Email:</label>
+                    <input asp-for="UserDetails.Email" class="form-control" />
+                    <span asp-validation-for="UserDetails.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserDetails.Gender" class="control-label font-weight-bold">Gender:</label>
+                    <input asp-for="UserDetails.Gender" class="form-control" />
+                    <span asp-validation-for="UserDetails.Gender" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
 
-
+                <div class="form-group">
+                    <label asp-for="UserDetails.Age" class="control-label font-weight-bold">Age:</label>
+                    <input asp-for="UserDetails.Age" class="form-control" />
+                    <span asp-validation-for="UserDetails.Age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserDetails.Height" class="control-label font-weight-bold">Height:</label>
+                    <input asp-for="UserDetails.Height" class="form-control" placeholder="measured in centimeters" />
+                    <span asp-validation-for="UserDetails.Height" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserDetails.Weight" class="control-label font-weight-bold">Weight:</label>
+                    <input asp-for="UserDetails.Weight" class="form-control" placeholder="measured in kilograms" />
+                    <span asp-validation-for="UserDetails.Weight" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserDetails.ActivityLevel" class="control-label font-weight-bold">Activity Level:</label>
+                    <input asp-for="UserDetails.ActivityLevel" class="form-control" />
+                    <span asp-validation-for="UserDetails.ActivityLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register Details" class="btn btn-primary btn-block" />
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="UserDetails.MedicalConditions" class="control-label font-weight-bold">Medical Conditions:</label>
+                    <label asp-for="UserDetails.MedicalConditions" class="control-label font-weight-lighter font-italic">(Optional)</label>
+                    <textarea asp-for="UserDetails.MedicalConditions" class="form-control h-auto" placeholder="Do you have any Medical Conditions? (Please Separate Conditions with Commas)"></textarea>
+                    <span asp-validation-for="UserDetails.MedicalConditions" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
 
