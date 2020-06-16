@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 [assembly: HostingStartup(typeof(FoodFilesSoftwareAssignment.Areas.Identity.IdentityHostingStartup))]
 namespace FoodFilesSoftwareAssignment.Areas.Identity
@@ -19,7 +20,7 @@ namespace FoodFilesSoftwareAssignment.Areas.Identity
                 services.AddDbContext<FFSA_AuthDBContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("FFSA_AuthDBContextConnection")));
-
+                
                 services.AddDefaultIdentity<FFSA_ApplicationUser>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount = false;
@@ -29,6 +30,7 @@ namespace FoodFilesSoftwareAssignment.Areas.Identity
                     options.Password.RequireDigit = false;
                     options.Password.RequiredLength = 5;
                 })
+                
                     .AddEntityFrameworkStores<FFSA_AuthDBContext>();
             });
         }

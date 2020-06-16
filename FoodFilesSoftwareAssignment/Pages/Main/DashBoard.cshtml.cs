@@ -7,9 +7,11 @@ using DataLibrary.Models;
 using FoodFilesSoftwareAssignment.Pages.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodFilesSoftwareAssignment
 {
+    [Authorize]
     public class DashBoardModel : IdentityUserDetails
     {
         private readonly IUserData _userData;
