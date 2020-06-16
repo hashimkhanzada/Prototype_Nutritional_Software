@@ -2,13 +2,13 @@
 (
 	[FoodId] NVARCHAR(50) NOT NULL PRIMARY KEY, 
     [ShortName] NVARCHAR(256) NOT NULL, 
-    [ServingSize] NUMERIC NOT NULL, 
-    [Energy] NUMERIC NOT NULL, 
-    [Carbohydrates] NUMERIC NOT NULL, 
-    [Protein] NUMERIC NOT NULL, 
-    [Fat] NUMERIC NOT NULL, 
-    [Sugar] NUMERIC NOT NULL, 
-    [Sodium] NUMERIC NOT NULL, 
-    [SaturatedFat] NUMERIC NOT NULL, 
-    [Fibre] NUMERIC NOT NULL
+    [ServingSize] DECIMAL NOT NULL, 
+    [Energy] DECIMAL NOT NULL, 
+    [Carbohydrates] DECIMAL NOT NULL, 
+    [Protein] DECIMAL NOT NULL, 
+    [Fat] DECIMAL NOT NULL, 
+    [Sugar] DECIMAL NOT NULL, 
+    [Sodium] DECIMAL NOT NULL, 
+    [SaturatedFat] DECIMAL NOT NULL, 
+    [Fibre] DECIMAL NOT NULL
 )

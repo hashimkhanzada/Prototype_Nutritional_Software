@@ -7,6 +7,7 @@ using DataLibrary.Models;
 using FoodFilesSoftwareAssignment.Pages.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FoodFilesSoftwareAssignment
 {
@@ -19,11 +20,13 @@ namespace FoodFilesSoftwareAssignment
 
 
 
-        [BindProperty]
-        public List<NzFoodFilesModel> NzFoodFiles { get; set; }
+
+        public List<SelectListItem> NzFoodFiles { get; set; }
+
         [BindProperty]
         public List<CustomFoodModel> CustomFood { get; set; }
-
+        [BindProperty]
+        public UserFoodModel UserFood { get; set; }
 
 
         public SelectFoodModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
@@ -35,9 +38,17 @@ namespace FoodFilesSoftwareAssignment
         }
 
 
+
         public async Task OnGet()
         {
-            NzFoodFiles = await _nzFoodFilesData.GetAllFood();
+            var food = await _nzFoodFilesData.GetAllFood();
+
+            NzFoodFiles = new List<SelectListItem>();
+
+            food.ForEach(x =>
+            {
+                NzFoodFiles.Add(new SelectListItem { Value = x.FoodId, Text = x.ShortName });
+            });
         }
     }
 }

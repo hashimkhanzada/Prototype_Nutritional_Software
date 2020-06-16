@@ -8,14 +8,14 @@ namespace DataLibrary.Models
     {
         public int CustomFoodId { get; set; }
         public string ShortName { get; set; }
-        public int ServingSize { get; set; }
-        public int Energy { get; set; }
-        public int Carbohydrates { get; set; }
-        public int Protein { get; set; }
-        public int Fat { get; set; }
-        public int Sugar { get; set; }
-        public int Sodium { get; set; }
-        public int SaturatedFat { get; set; }
-        public int Fibre { get; set; }
+        public Decimal ServingSize { get; set; }
+        public Decimal Energy { get; set; }
+        public Decimal Carbohydrates { get; set; }
+        public Decimal Protein { get; set; }
+        public Decimal Fat { get; set; }
+        public Decimal Sugar { get; set; }
+        public Decimal Sodium { get; set; }
+        public Decimal SaturatedFat { get; set; }
+        public Decimal Fibre { get; set; }
     }
 }

@@ -2,9 +2,9 @@
 (
 	[CountId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [UserId] NVARCHAR(450) NOT NULL, 
-    [CalorieGoal] INT NOT NULL, 
+    [CalorieGoal] DECIMAL NOT NULL, 
     [Date] DATE NOT NULL, 
-    [CaloriesConsumed] INT NULL, 
+    [CaloriesConsumed] DECIMAL NULL, 
     [UserRecipeId] INT NULL, 
     [UserFoodId] INT NULL, 
     CONSTRAINT [FK_UserId_CalorieCount_User] FOREIGN KEY (UserId) REFERENCES [User](Id), 

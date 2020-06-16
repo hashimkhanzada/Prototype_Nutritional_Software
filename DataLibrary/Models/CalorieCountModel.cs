@@ -8,9 +8,9 @@ namespace DataLibrary.Models
     {
         public int CountId { get; set; }
         public string UserId { get; set; }
-        public int CalorieGoal { get; set; }
+        public Decimal CalorieGoal { get; set; }
         public DateTime Date { get; set; }
-        public int CaloriesConsumed { get; set; }
+        public Decimal CaloriesConsumed { get; set; }
         public int UserRecipeId { get; set; }
         public int UserFoodId { get; set; }
     }
