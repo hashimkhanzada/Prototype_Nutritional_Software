@@ -8,9 +8,11 @@ using FoodFilesSoftwareAssignment.Pages.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodFilesSoftwareAssignment
 {
+    [Authorize]
     public class SelectFoodModel : IdentityUserDetails
     {
         private readonly IUserData _userData;

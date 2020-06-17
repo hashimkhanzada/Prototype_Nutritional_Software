@@ -1,83 +1,89 @@
 ﻿@page
 @model FoodFilesSoftwareAssignment.DashBoardModel
 @{
-    ViewData["Title"] = "DashBoard";
+    ViewData["Title"] = "User Dashboard";
 }
 
-<h1>DashBoard</h1>
-<h4>@Model.caloriesConsumed</h4>
-<h4>@Model.carbohydrates</h4>
-<h4>@Model.sugar</h4>
-<h4>@Model.protein</h4>
-<h4>@Model.fat</h4>
-<h4>@Model.saturatedFat</h4>
-<h4>@Model.sodium</h4>
+<h1>User Dashboard</h1>
 
-@if (Model.CalorieCount is null)
-{
-    <h4>The records are empty</h4>
-}
-else
-{
-    <h4>Calorie Count</h4>
-    //this is just to display the data, was used to test outputs
-    <h4>@Model.CalorieCount.CountId</h4>
-    <h4>@Model.CalorieCount.Date</h4>
-    <h4>@Model.CalorieCount.UserFoodId</h4>
-    <h4>@Model.CalorieCount.UserRecipeId</h4>
-    <h4>@Model.CalorieCount.CalorieGoal</h4>
-    <h4>@Model.CalorieCount.CaloriesConsumed</h4>
-    
-}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr /><h4>Section Title</h4><hr />
+            <strong>Calories Consumed:</strong> @Model.caloriesConsumed<br />
+            <strong>Carbohydrates:</strong> @Model.carbohydrates<br />
+            <strong>Sugar:</strong> @Model.sugar<br />
+            <strong>Protein:</strong> @Model.protein<br />
+            <strong>Fat:</strong> @Model.fat<br />
+            <strong>Saturated Fat:</strong> @Model.saturatedFat<br />
+            <strong>Sodium:</strong> @Model.sodium<br />
 
-@if (Model.UserFood is null)
-{
-    <h4>The records are empty</h4>
-}
-else
-{
-    <h4>User Food</h4>
+            <hr /><h4>Calorie Count</h4><hr />
+            @if (Model.CalorieCount is null)
+            {
+                <strong>There is no Information available for this Day!</strong>
+            }
+            else
+            {
+                //this is just to display the data, was used to test outputs
+                <strong>ID:</strong> @Model.CalorieCount.CountId<br />
+                <strong>Date:</strong> @Model.CalorieCount.Date<br />
+                <strong>FoodID:</strong> @Model.CalorieCount.UserFoodId<br />
+                <strong>User RecipeID:</strong> @Model.CalorieCount.UserRecipeId<br />
+                <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal<br />
+                <strong>Calories Consumed:</strong> @Model.CalorieCount.CaloriesConsumed<br />
+            }
+        </div>
+        <div class="col">
+            <hr /><h4>User Food</h4><hr />
+            @if (Model.UserFood is null)
+            {
+                <strong>The records are empty</strong>
+            }
+            else
+            {
+                @foreach (var userFood in Model.UserFood)
+                {
+                    <ul>
+                        <li>FoodID: @userFood.FoodId</li>
+                        <li>User FoodID: @userFood.UserFoodId</li>
+                        <li>Custom FoodID: @userFood.CustomFoodId</li>
+                        <li>Date: @userFood.Date</li>
+                        <li>Quantity: @userFood.Quantity</li>
+                    </ul>
+                }
+            }
 
-    @foreach (var userFood in Model.UserFood)
-    {
-        <tr>
-            <td>@userFood.FoodId</td>
-            <td>@userFood.UserFoodId</td>
-            <td>@userFood.CustomFoodId</td>
-            <td>@userFood.Date</td>
-            <td>@userFood.Quantity</td>
-        </tr>
-       
-    }
+            <hr /><h4>Nz Food</h4><hr />
+            @if (Model.NzFoodFiles is null)
+            {
+                <h4>The records are empty</h4>
+            }
+            else
+            {
 
-}
 
-@if (Model.NzFoodFiles is null)
-{
-    <h4>The records are empty</h4>
-}
-else
-{
-    <h4>Nz Food</h4>
-
-    @foreach (var food in Model.NzFoodFiles)
-    {
-        <tr>
-            <td>@food.ShortName</td>
-            <td>@food.Energy</td>
-            <td>@food.Carbohydrates</td>
-            <td>@food.Sugar</td>
-            <td>@food.Protein</td>
-            <td>@food.Fat</td>
-            <td>@food.SaturatedFat</td>
-            <td>@food.Sodium</td>
-        </tr>
-    }
-}
-
+                @foreach (var food in Model.NzFoodFiles)
+                {
+                    <ul>
+                        <li>Name: @food.ShortName</li>
+                        <li>Energy: @food.Energy</li>
+                        <li>Carbohydrates: @food.Carbohydrates</li>
+                        <li>Sugar: @food.Sugar</li>
+                        <li>Protein: @food.Protein</li>
+                        <li>Fat: @food.Fat</li>
+                        <li>Saturated Fat:@food.SaturatedFat</li>
+                        <li>Sodium: @food.Sodium</li>
+                    </ul>
+                }
+            }
+        </div>
+    </div>
+</div>
+<hr />
 <form method="post">
     <div class="form-group">
-        <label asp-for="SelectedDate.Date" class="control-label"></label>
+        <strong><label asp-for="SelectedDate.Date" class="control-label">Select Date:</label></strong>
         <input asp-for="SelectedDate.Date" class="form-control" />
         <span asp-validation-for="SelectedDate.Date" class="text-danger"></span>
     </div>
