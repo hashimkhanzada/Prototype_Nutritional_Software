@@ -8,5 +8,7 @@ namespace DataLibrary.Data
     public interface IUserFoodData
     {
         Task<List<UserFoodModel>> GetUserFoodByIdAndDate(string UserId, DateTime Date);
+
+        Task InsertFood(UserFoodModel userFood);
     }
 }

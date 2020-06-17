@@ -5,7 +5,7 @@ AS
 begin
 	set nocount on;
 
-	select UserFoodId, UserId, FoodId, [Date], CustomFoodId
+	select UserFoodId, UserId, FoodId, [Date], CustomFoodId, Quantity
 	from [dbo].[UserFood]
 	where UserId = @Id AND [Date]=@Date;
 end

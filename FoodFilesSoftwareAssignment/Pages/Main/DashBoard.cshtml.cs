@@ -20,7 +20,7 @@ namespace FoodFilesSoftwareAssignment
         private readonly INzFoodFilesData _nzFoodFilesData;
 
 
-
+        [BindProperty]
         public CalorieCountModel CalorieCount { get; set; }
 
         [BindProperty]
@@ -32,8 +32,6 @@ namespace FoodFilesSoftwareAssignment
         [BindProperty]
         public CalorieCountModel SelectedDate { get; set; }
 
-
-
         public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
         {
             _userData = userData;
@@ -41,6 +39,14 @@ namespace FoodFilesSoftwareAssignment
             _userFoodData = userFoodData;
             _nzFoodFilesData = nzFoodFilesData;
         }
+
+        public decimal caloriesConsumed = 0;
+        public decimal carbohydrates = 0;
+        public decimal sugar = 0;
+        public decimal protein = 0;
+        public decimal fat = 0;
+        public decimal saturatedFat = 0;
+        public decimal sodium = 0;
 
         public async Task<IActionResult> OnGet()
         {
@@ -55,10 +61,19 @@ namespace FoodFilesSoftwareAssignment
             {
                 string currentFoodId = item.FoodId;
 
-                var abc = await _nzFoodFilesData.GetNzFoodByFoodId(currentFoodId);
+                var food = await _nzFoodFilesData.GetNzFoodByFoodId(currentFoodId);
 
-                NzFoodFiles.AddRange(abc);
+                caloriesConsumed += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Energy;
+                carbohydrates += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Carbohydrates;
+                sugar += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sugar;
+                protein += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Protein;
+                fat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Fat;
+                saturatedFat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().SaturatedFat;
+                sodium += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sodium;
+
+                NzFoodFiles.AddRange(food);
             }
+
             
 
             return Page(); //refresh
@@ -82,9 +97,17 @@ namespace FoodFilesSoftwareAssignment
             {
                 string currentFoodId = item.FoodId;
 
-                var abc = await _nzFoodFilesData.GetNzFoodByFoodId(currentFoodId);
+                var food = await _nzFoodFilesData.GetNzFoodByFoodId(currentFoodId);
 
-                NzFoodFiles.AddRange(abc);
+                caloriesConsumed += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Energy;
+                carbohydrates += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Carbohydrates;
+                sugar += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sugar;
+                protein += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Protein;
+                fat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Fat;
+                saturatedFat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().SaturatedFat;
+                sodium += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sodium;
+
+                NzFoodFiles.AddRange(food);
             }
 
             return Page();

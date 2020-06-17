@@ -1,4 +1,5 @@
-﻿using DataLibrary.Db;
+﻿using Dapper;
+using DataLibrary.Db;
 using DataLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,20 @@ namespace DataLibrary.Data
                     Date
                 },
                 _connectionString.SqlConnectionName);
+        }
+
+        public async Task InsertFood(UserFoodModel userFood)
+        {
+            DynamicParameters p = new DynamicParameters();
+
+            p.Add("FoodId", userFood.FoodId);
+            p.Add("UserId", userFood.UserId);
+            p.Add("Date", userFood.Date);
+            p.Add("Quantity", userFood.Quantity);
+
+            await _dataAccess.SaveData("dbo.spUserFood_InsertFoodId",
+                                       p,
+                                       _connectionString.SqlConnectionName);
         }
 
 

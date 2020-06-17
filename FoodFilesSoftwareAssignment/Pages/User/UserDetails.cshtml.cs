@@ -14,14 +14,17 @@ namespace FoodFilesSoftwareAssignment
 {
     public class CreateUserModel : IdentityUserDetails
     {
+
         private readonly IUserData _userData;
         private readonly ICalorieCountData _calorieCountData;
 
+
         [BindProperty] //write to the user model through post methods
         public UserModel UserDetails { get; set; }  //Instance of UserModel through which data will be entered into the sql database, it will stored data that we create in this class
-
+        
         [BindProperty]
         public CalorieCountModel InitialUserCalories { get; set; } //instance of caloriecountModel. Initial user data that will be inserted into the calorie count table when registering
+
 
         //constructor
         public CreateUserModel(IUserData userData, ICalorieCountData calorieCountData)
@@ -42,7 +45,7 @@ namespace FoodFilesSoftwareAssignment
             UserDetails.UserName = UserName; //gets username from identity database. Done in inherited class
 
             //TODO - shift to class library, add variables instead of hard-coded data
-            int CalorieFormula = InitialUserCalories.CalorieGoal = Convert.ToInt32((10 * UserDetails.Weight) + (6.25 * UserDetails.Height) - (5 * UserDetails.Age)); //formula to calculate TDEE, will be altered, and will be shifted to the class library so it can be reused.
+            Decimal CalorieFormula = InitialUserCalories.CalorieGoal = (10 * UserDetails.Weight) + (6.25m * UserDetails.Height) - (5 * UserDetails.Age); //formula to calculate TDEE, will be altered, and will be shifted to the class library so it can be reused.
 
             //TODO - change form so it has a drop down for this data, not textbox 
             //input in the form is hard coded

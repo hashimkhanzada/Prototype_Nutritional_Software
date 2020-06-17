@@ -5,6 +5,13 @@
 }
 
 <h1>DashBoard</h1>
+<h4>@Model.caloriesConsumed</h4>
+<h4>@Model.carbohydrates</h4>
+<h4>@Model.sugar</h4>
+<h4>@Model.protein</h4>
+<h4>@Model.fat</h4>
+<h4>@Model.saturatedFat</h4>
+<h4>@Model.sodium</h4>
 
 @if (Model.CalorieCount is null)
 {
@@ -13,14 +20,14 @@
 else
 {
     <h4>Calorie Count</h4>
-    <h4>@Model.CalorieCount.UserId</h4>
-    //this is just to display the data, was just used to test outputs
+    //this is just to display the data, was used to test outputs
     <h4>@Model.CalorieCount.CountId</h4>
     <h4>@Model.CalorieCount.Date</h4>
     <h4>@Model.CalorieCount.UserFoodId</h4>
     <h4>@Model.CalorieCount.UserRecipeId</h4>
     <h4>@Model.CalorieCount.CalorieGoal</h4>
     <h4>@Model.CalorieCount.CaloriesConsumed</h4>
+    
 }
 
 @if (Model.UserFood is null)
@@ -34,11 +41,11 @@ else
     @foreach (var userFood in Model.UserFood)
     {
         <tr>
-            <td>@userFood.UserId</td>
             <td>@userFood.FoodId</td>
             <td>@userFood.UserFoodId</td>
             <td>@userFood.CustomFoodId</td>
             <td>@userFood.Date</td>
+            <td>@userFood.Quantity</td>
         </tr>
        
     }
@@ -56,9 +63,14 @@ else
     @foreach (var food in Model.NzFoodFiles)
     {
         <tr>
-            <td>@food.FoodId</td>
             <td>@food.ShortName</td>
             <td>@food.Energy</td>
+            <td>@food.Carbohydrates</td>
+            <td>@food.Sugar</td>
+            <td>@food.Protein</td>
+            <td>@food.Fat</td>
+            <td>@food.SaturatedFat</td>
+            <td>@food.Sodium</td>
         </tr>
     }
 }

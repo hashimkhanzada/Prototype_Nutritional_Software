@@ -20,13 +20,13 @@ namespace FoodFilesSoftwareAssignment
 
 
 
-
         public List<SelectListItem> NzFoodFiles { get; set; }
 
         [BindProperty]
         public List<CustomFoodModel> CustomFood { get; set; }
         [BindProperty]
         public UserFoodModel UserFood { get; set; }
+
 
 
         public SelectFoodModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
@@ -49,6 +49,22 @@ namespace FoodFilesSoftwareAssignment
             {
                 NzFoodFiles.Add(new SelectListItem { Value = x.FoodId, Text = x.ShortName });
             });
+        }
+
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return Page();
+            }
+
+            UserFood.UserId = UserId;
+            UserFood.Date = TodayDate;
+
+            await _userFoodData.InsertFood(UserFood);
+
+            return RedirectToPage("../DashBoard");
         }
     }
 }
