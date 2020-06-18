@@ -19,6 +19,8 @@ namespace FoodFilesSoftwareAssignment
         private readonly IUserFoodData _userFoodData;
         private readonly INzFoodFilesData _nzFoodFilesData;
 
+        [BindProperty]
+        public CalorieCountModel InitialUserCalories { get; set; } 
 
         [BindProperty]
         public CalorieCountModel CalorieCount { get; set; }
@@ -57,7 +59,22 @@ namespace FoodFilesSoftwareAssignment
 
             NzFoodFiles = new List<NzFoodFilesModel>();
 
-            foreach (var item in UserFood)
+            if (CalorieCount is null) //creates new entry each time a user logs in, calorie goal is based on the goal from the last user entry
+            {
+                
+
+                var recentUserCalories = await _calorieCountData.GetRecentCalorieGoal(UserId);
+
+                InitialUserCalories = recentUserCalories;
+                InitialUserCalories.UserId = UserId;
+                InitialUserCalories.Date = DateTime.Today;
+
+                await _calorieCountData.CreateCalorieCount(InitialUserCalories);
+
+                return Page();
+            }
+
+            foreach (var item in UserFood) //displays total calories/macros of food displayed
             {
                 string currentFoodId = item.FoodId;
 
@@ -74,7 +91,7 @@ namespace FoodFilesSoftwareAssignment
                 NzFoodFiles.AddRange(food);
             }
 
-            
+
 
             return Page(); //refresh
         }
@@ -112,7 +129,5 @@ namespace FoodFilesSoftwareAssignment
 
             return Page();
         }
-
-
     }
 }

@@ -8,5 +8,7 @@ namespace DataLibrary.Data
     {
         Task CreateCalorieCount(CalorieCountModel calorieCount);
         Task<CalorieCountModel> GetCalorieCountByIdAndDate(string UserId, DateTime Date);
+
+        Task<CalorieCountModel> GetRecentCalorieGoal(string UserId);
     }
 }

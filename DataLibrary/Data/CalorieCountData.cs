@@ -46,6 +46,20 @@ namespace DataLibrary.Data
             return recs.FirstOrDefault();
         }
 
+        public async Task<CalorieCountModel> GetRecentCalorieGoal(string UserId)
+        {
+            var recs = await _dataAccess.LoadData<CalorieCountModel, dynamic>("dbo.spCalorieCount_GetRecent_CalorieGoal",
+                new
+                {
+                    UserId
+                },
+                _connectionString.SqlConnectionName);
 
-    }
+            return recs.FirstOrDefault();
+        }
+
+
+
+
+        }
 }
