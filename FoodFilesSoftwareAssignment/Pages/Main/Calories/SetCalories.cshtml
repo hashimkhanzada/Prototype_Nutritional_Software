@@ -6,3 +6,15 @@
 
 <h1>SetCalories</h1>
 
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="UpdateCalorieGoal.CalorieGoal" class="control-label"></label>
+        <input asp-for="UpdateCalorieGoal.CalorieGoal" class="form-control" />
+        <span asp-validation-for="UpdateCalorieGoal.CalorieGoal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Update Calorie Goal" class="btn btn-primary" />
+    </div>
+</form>
+

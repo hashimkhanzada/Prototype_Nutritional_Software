@@ -8,6 +8,7 @@ using FoodFilesSoftwareAssignment.Pages.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
+using FoodFilesSoftwareAssignment.Models;
 
 namespace FoodFilesSoftwareAssignment
 {
@@ -33,6 +34,7 @@ namespace FoodFilesSoftwareAssignment
 
         [BindProperty]
         public CalorieCountModel SelectedDate { get; set; }
+
 
         public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
         {
@@ -102,6 +104,8 @@ namespace FoodFilesSoftwareAssignment
             {
                 return Page();
             }
+
+            
 
             //gets data based on date specified in the calendar
             CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, SelectedDate.Date);

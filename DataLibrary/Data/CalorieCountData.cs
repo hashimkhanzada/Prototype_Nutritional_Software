@@ -58,8 +58,20 @@ namespace DataLibrary.Data
             return recs.FirstOrDefault();
         }
 
-
-
-
+        public Task UpdateCalorieGoal(string UserId, DateTime Date, decimal CalorieGoal)
+        {
+            return _dataAccess.SaveData("dbo.spCalorie_Count_Update_CalorieGoal",
+                                        new
+                                        {
+                                            UserId,
+                                            Date,
+                                            CalorieGoal
+                                        },
+                                        _connectionString.SqlConnectionName);
         }
+
+
+
+
+    }
 }

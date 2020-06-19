@@ -10,5 +10,7 @@ namespace DataLibrary.Data
         Task<CalorieCountModel> GetCalorieCountByIdAndDate(string UserId, DateTime Date);
 
         Task<CalorieCountModel> GetRecentCalorieGoal(string UserId);
+
+        Task UpdateCalorieGoal(string UserId, DateTime Date, decimal CalorieGoal);
     }
 }

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCalorieCount_InsertInitialUserData]
 	@UserId nvarchar(450),
-	@CalorieGoal int,
+	@CalorieGoal decimal(18,0),
 	@Date date
 AS
 begin
