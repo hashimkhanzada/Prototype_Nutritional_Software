@@ -65,6 +65,12 @@ namespace FoodFilesSoftwareAssignment.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnGetAsync()
         {
+            // if the user is authenticated then redirect them to the homepage
+            // prevents an already authenticated user from accessing the login form
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("/Identity/Account/Manage");
+            }
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
