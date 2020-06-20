@@ -66,6 +66,7 @@ namespace FoodFilesSoftwareAssignment
             await _calorieCountData.CreateCalorieCount(InitialUserCalories); //Takes data from the InitialUserCalories model and inserts it into the caloriecount table
 
             return RedirectToPage("../Main/DashBoard");
+
         }
     }
 }
