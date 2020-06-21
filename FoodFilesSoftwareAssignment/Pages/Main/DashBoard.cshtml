@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-xl-3">
             <hr /><h4>Section Title</h4><hr />
             <strong>Calories Consumed:</strong> @Model.caloriesConsumed<br />
             <strong>Carbohydrates:</strong> @Model.carbohydrates<br />
@@ -34,8 +34,9 @@
                 @*<strong>Calories Consumed:</strong> @Model.CalorieCount.CaloriesConsumed<br />*@
             }
         </div>
-        <div class="col">
-            <hr /><h4>User Food</h4><hr />
+        <div class="col-xl-9">
+            <hr /><h4>User Food</h4>
+            <hr />
             @if (Model.UserFood is null)
             {
                 <strong>The records are empty</strong>
@@ -55,7 +56,7 @@
                 }
             }
 
-            <hr /><h4>Nz Food</h4><hr />
+            <hr /><h4 class="d-inline">Nz Food</h4><a href="/Main/Food/SelectFood" class="btn btn-primary float-xl-right" role="button">Select Food (NZ FOOD FILES)</a><hr />
             @if (Model.NzFoodFiles is null)
             {
                 <h4>The records are empty</h4>
@@ -127,7 +128,7 @@
 
             }
 
-            <hr /><h4>Custom Food</h4><hr />
+            <hr /><h4 class="d-inline">Custom Food</h4><a href="/Main/Food/SelectCustomFood" class="btn btn-primary float-xl-right" role="button">Select Food (USER CUSTOM FOODS)</a><hr />
             @if (Model.CustomFood is null)
             {
                 <h4>The records are empty</h4>

@@ -5,7 +5,8 @@
 }
 
 <h1>SelectCustomFood</h1>
-
+<a href="/Main/Food/AddFood" class="btn btn-primary" role="button">Add New Custom Food</a>
+<hr />
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
@@ -21,4 +22,5 @@
     <div class="form-group">
         <input type="submit" value="Order Food" class="btn btn-primary" />
     </div>
+    <a href="/Main/Food/RemoveFood" class="btn btn-outline-danger font-weight-bolder" role="button">Remove Food</a>
 </form>

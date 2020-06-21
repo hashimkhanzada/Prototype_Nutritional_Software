@@ -4,30 +4,39 @@
     ViewData["Title"] = "SetCalories";
 }
 
-<h1>SetCalories</h1>
+<h1>Set New Calorie Goal</h1>
 
-<hr />
+@*<hr />
 <h4>Current calorie goal</h4>
-<hr />
-@if (Model.CalorieCount is null)
-{
-    <strong>There is no Information available for this Day!</strong>
-}
-else
-{
-    <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal
-    <br />
-}
+<hr />*@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4">
+            @if (Model.CalorieCount is null)
+            {
+                <strong>There is no Information available for this Day!</strong>
+            }
+            else
+            {
+                <strong>Current Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal
+                <br />
+            }
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    @*<label asp-for="UpdateCalorieGoal.CalorieGoal" class="control-label"></label>*@
+                    <input asp-for="UpdateCalorieGoal.CalorieGoal" class="form-control" placeholder="Enter New Calorie Goal Here..." />
+                    <span asp-validation-for="UpdateCalorieGoal.CalorieGoal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update Calorie Goal" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-<form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="UpdateCalorieGoal.CalorieGoal" class="control-label"></label>
-        <input asp-for="UpdateCalorieGoal.CalorieGoal" class="form-control" />
-        <span asp-validation-for="UpdateCalorieGoal.CalorieGoal" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Update Calorie Goal" class="btn btn-primary" />
-    </div>
-</form>
+
+
+
 
