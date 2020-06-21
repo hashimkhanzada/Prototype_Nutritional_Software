@@ -5,7 +5,7 @@
     [FoodId] NVARCHAR(50) NULL, 
     [CustomFoodId] INT NULL, 
     [Date] DATE NOT NULL, 
-    [Quantity] DECIMAL NULL, 
+    [Quantity] DECIMAL(18, 3) NULL, 
     CONSTRAINT [FK_UserFood_NzFoodFiles] FOREIGN KEY ([FoodId]) REFERENCES [NzFoodFiles]([FoodId]), 
     CONSTRAINT [FK_UserFood_CustomFood] FOREIGN KEY ([CustomFoodId]) REFERENCES [CustomFood]([CustomFoodId]), 
     CONSTRAINT [FK_UserFood_User] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])

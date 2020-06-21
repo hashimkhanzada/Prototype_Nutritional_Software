@@ -38,6 +38,7 @@ namespace FoodFilesSoftwareAssignment
 
         [BindProperty]
         public CalorieCountModel SelectedDate { get; set; }
+        public List<DashboardDisplayModel> DisplayFood { get; set; }
 
 
         public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData, ICustomFoodData customFoodData)
@@ -64,8 +65,10 @@ namespace FoodFilesSoftwareAssignment
             CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, TodayDate); //gets data from the caloriecount table based on userId and date, then inserts it into CalorieCount (instance of caloriecount model)
             UserFood = await _userFoodData.GetUserFoodByIdAndDate(UserId, TodayDate);
 
+
             NzFoodFiles = new List<NzFoodFilesModel>();
             CustomFood = new List<CustomFoodModel>();
+            DisplayFood = new List<DashboardDisplayModel>();
 
 
             if (CalorieCount is null) //creates new entry each time a user logs in, calorie goal is based on the goal from the last user entry
@@ -115,6 +118,8 @@ namespace FoodFilesSoftwareAssignment
                     fat += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Fat;
                     saturatedFat += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().SaturatedFat;
                     sodium += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Sodium;
+
+
 
                     CustomFood.AddRange(customfood);
                 }

@@ -46,10 +46,6 @@
                 @foreach (var userFood in Model.UserFood)
                 {
                     <ul>
-                        <li>FoodID: @userFood.FoodId</li>
-                        <li>User FoodID: @userFood.UserFoodId</li>
-                        <li>Custom FoodID: @userFood.CustomFoodId</li>
-                        <li>Date: @userFood.Date</li>
                         <li>Quantity: @userFood.Quantity</li>
                         <li><a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Delete</a></li>
                     </ul>

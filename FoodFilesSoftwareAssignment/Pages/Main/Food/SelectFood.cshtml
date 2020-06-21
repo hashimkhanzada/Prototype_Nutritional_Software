@@ -6,7 +6,6 @@
 
 <h1>SelectFood</h1>
 
-@* TODO - Add CustomFoodId input*@
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
@@ -23,39 +22,4 @@
         <input type="submit" value="Order Food" class="btn btn-primary" />
     </div>
 </form>
-
-@*<table class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th>Food Id</th>
-            <th>Short Name</th>
-            <th>Energy</th>
-            <th>Carbohydrates</th>
-            <th>Protein</th>
-            <th>Fat</th>
-            <th>Sugar</th>
-            <th>Sodium</th>
-            <th>Saturated Fat</th>
-            <th>Fibre</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var food in Model.NzFoodFiles)
-        {
-        <tr>
-            <td>@food.FoodId</td>
-            <td>@food.ShortName</td>
-            <td>@food.Energy</td>
-            <td>@food.Carbohydrates</td>
-            <td>@food.Protein</td>
-            <td>@food.Fat</td>
-            <td>@food.Sugar</td>
-            <td>@food.Sodium</td>
-            <td>@food.SaturatedFat</td>
-            <td>@food.Fibre</td>
-        </tr>
-        }
-    </tbody>
-</table>*@
-
 
