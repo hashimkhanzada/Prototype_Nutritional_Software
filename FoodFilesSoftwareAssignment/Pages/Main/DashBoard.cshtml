@@ -9,33 +9,39 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-3">
-            <hr /><h4>Section Title</h4><hr />
-            <strong>Calories Consumed:</strong> @Model.caloriesConsumed<br />
+            <hr /><h4>Totals</h4><hr />
             <strong>Carbohydrates:</strong> @Model.carbohydrates<br />
             <strong>Sugar:</strong> @Model.sugar<br />
             <strong>Protein:</strong> @Model.protein<br />
             <strong>Fat:</strong> @Model.fat<br />
             <strong>Saturated Fat:</strong> @Model.saturatedFat<br />
             <strong>Sodium:</strong> @Model.sodium<br />
+            <hr />
+            <strong>Calories Consumed:</strong> @Model.caloriesConsumed<br />
 
-            <hr /><h4>Calorie Count</h4><hr />
+
             @if (Model.CalorieCount is null)
             {
                 <strong>There is no Information available for this Day!</strong>
             }
+            else if (Model.caloriesConsumed > Model.CalorieCount.CalorieGoal)
+            {
+                <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal<br />
+                <p class="text-danger">CALORIES CONSUMED EXCEED CURRENT CALORIE GOAL!</p>
+            }
             else
             {
+                <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal<br />
                 //this is just to display the data, was used to test outputs
                 @*<strong>ID:</strong> @Model.CalorieCount.CountId<br />
                 <strong>Date:</strong> @Model.CalorieCount.Date<br />
                 <strong>FoodID:</strong> @Model.CalorieCount.UserFoodId<br />
-                <strong>User RecipeID:</strong> @Model.CalorieCount.UserRecipeId<br />*@
-                <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal<br />
-                @*<strong>Calories Consumed:</strong> @Model.CalorieCount.CaloriesConsumed<br />*@
+                <strong>User RecipeID:</strong> @Model.CalorieCount.UserRecipeId<br />
+                <strong>Calories Consumed:</strong> @Model.CalorieCount.CaloriesConsumed<br />*@
             }
         </div>
         <div class="col-xl-9">
-            <hr /><h4>User Food</h4>
+            <hr /><h4>Details</h4>
             <hr />
             @if (Model.UserFood is null)
             {
@@ -52,7 +58,7 @@
                 }
             }
 
-            <hr /><h4 class="d-inline">Nz Food</h4><a href="/Main/Food/SelectFood" class="btn btn-primary float-xl-right" role="button">Select Food (NZ FOOD FILES)</a><hr />
+            <hr /><h4 class="d-inline">NZ Food</h4><a href="/Main/Food/SelectFood" class="btn btn-primary float-xl-right" role="button">Select Food (NZ FOOD FILES)</a><hr />
             @if (Model.NzFoodFiles is null)
             {
                 <h4>The records are empty</h4>
