@@ -1,0 +1,74 @@
+﻿@page
+@model FoodFilesSoftwareAssignment.AddFoodModel
+@{
+    ViewData["Title"] = "AddFood";
+}
+
+<h1>AddFood</h1>
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="CustomFood.ShortName" class="control-label font-weight-bold">Short Name:</label>
+                    <input asp-for="CustomFood.ShortName" class="form-control" />
+                    <span asp-validation-for="CustomFood.ShortName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.ServingSize" class="control-label font-weight-bold">Serving Size:</label>
+                    <input asp-for="CustomFood.ServingSize" class="form-control" />
+                    <span asp-validation-for="CustomFood.ServingSize" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.Energy" class="control-label font-weight-bold">Energy:</label>
+                    <input asp-for="CustomFood.Energy" class="form-control" />
+                    <span asp-validation-for="CustomFood.Energy" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.Carbohydrates" class="control-label font-weight-bold">Carbohydrates:</label>
+                    <input asp-for="CustomFood.Carbohydrates" class="form-control" />
+                    <span asp-validation-for="CustomFood.Carbohydrates" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+
+                <div class="form-group">
+                    <label asp-for="CustomFood.Protein" class="control-label font-weight-bold">Protein:</label>
+                    <input asp-for="CustomFood.Protein" class="form-control" />
+                    <span asp-validation-for="CustomFood.Protein" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.Fat" class="control-label font-weight-bold">Fat:</label>
+                    <input asp-for="CustomFood.Fat" class="form-control" />
+                    <span asp-validation-for="CustomFood.Fat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.Sugar" class="control-label font-weight-bold">Sugar:</label>
+                    <input asp-for="CustomFood.Sugar" class="form-control" />
+                    <span asp-validation-for="CustomFood.Sugar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.Sodium" class="control-label font-weight-bold">Sodium:</label>
+                    <input asp-for="CustomFood.Sodium" class="form-control" />
+                    <span asp-validation-for="CustomFood.Sodium" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.SaturatedFat" class="control-label font-weight-bold">Saturated Fat:</label>
+                    <input asp-for="CustomFood.SaturatedFat" class="form-control" />
+                    <span asp-validation-for="CustomFood.SaturatedFat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomFood.Fibre" class="control-label font-weight-bold">Fibre:</label>
+                    <input asp-for="CustomFood.Fibre" class="form-control" />
+                    <span asp-validation-for="CustomFood.Fibre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register Details" class="btn btn-primary btn-block" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

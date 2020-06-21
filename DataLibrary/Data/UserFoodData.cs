@@ -45,6 +45,30 @@ namespace DataLibrary.Data
                                        _connectionString.SqlConnectionName);
         }
 
+        public async Task InsertCustomFood(UserFoodModel userFood)
+        {
+            DynamicParameters p = new DynamicParameters();
+
+            p.Add("CustomFoodId", userFood.CustomFoodId);
+            p.Add("UserId", userFood.UserId);
+            p.Add("Date", userFood.Date);
+            p.Add("Quantity", userFood.Quantity);
+
+            await _dataAccess.SaveData("dbo.spUserFood_InsertCustomFood",
+                                       p,
+                                       _connectionString.SqlConnectionName);
+        }
+
+        public Task<int> DeleteUserFood(int UserFoodId)
+        {
+            return _dataAccess.SaveData("dbo.spUserFood_DeleteFood",
+                                        new
+                                        {
+                                            UserFoodId
+                                        },
+                                        _connectionString.SqlConnectionName);
+        }
+
 
     }
 }

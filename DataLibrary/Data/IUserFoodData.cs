@@ -10,5 +10,9 @@ namespace DataLibrary.Data
         Task<List<UserFoodModel>> GetUserFoodByIdAndDate(string UserId, DateTime Date);
 
         Task InsertFood(UserFoodModel userFood);
+
+        Task<int> DeleteUserFood(int UserFoodId);
+
+        Task InsertCustomFood(UserFoodModel userFood);
     }
 }

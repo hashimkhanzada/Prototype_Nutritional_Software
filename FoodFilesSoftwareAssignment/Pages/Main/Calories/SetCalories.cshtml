@@ -6,6 +6,19 @@
 
 <h1>SetCalories</h1>
 
+<hr />
+<h4>Current calorie goal</h4>
+<hr />
+@if (Model.CalorieCount is null)
+{
+    <strong>There is no Information available for this Day!</strong>
+}
+else
+{
+    <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal
+    <br />
+}
+
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">

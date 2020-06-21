@@ -79,6 +79,11 @@
     <Build Include="dbo\Stored Procedures\spUserFood_InsertFoodId.sql" />
     <Build Include="dbo\Stored Procedures\spCalorieCount_GetRecent_CalorieGoal.sql" />
     <Build Include="dbo\Stored Procedures\spCalorie_Count_Update_CalorieGoal.sql" />
+    <Build Include="dbo\Stored Procedures\spUserFood_DeleteFood.sql" />
+    <Build Include="dbo\Stored Procedures\spCustomFood_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spCustomFood_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spCustomFood_GetFood_ByFoodId.sql" />
+    <Build Include="dbo\Stored Procedures\spUserFood_InsertCustomFood.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DBFoodFiles.refactorlog" />

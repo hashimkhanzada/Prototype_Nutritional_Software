@@ -4,5 +4,17 @@
     ViewData["Title"] = "RemoveFood";
 }
 
-<h1>RemoveFood</h1>
+<h1>Remove Food</h1>
+<h1>@Model.Id</h1>
+
+
+    <div class="h4">
+        Are you sure you want to remove this item?
+    </div>
+    <form method="post">
+        <input asp-for="Id" value="@Model.Id" type="hidden" />
+        <div class="form-group">
+            <input type="submit" value="Delete Food" class="btn btn-danger" />
+        </div>
+    </form>
 

@@ -50,6 +50,7 @@
                         <li>Custom FoodID: @userFood.CustomFoodId</li>
                         <li>Date: @userFood.Date</li>
                         <li>Quantity: @userFood.Quantity</li>
+                        <li><a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Delete</a></li>
                     </ul>
                 }
             }
@@ -62,20 +63,140 @@
             else
             {
 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].ShortName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Energy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Carbohydrates)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Sugar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Protein)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Fat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].SaturatedFat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Sodium)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.NzFoodFiles)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShortName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Energy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Carbohydrates)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sugar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Protein)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SaturatedFat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sodium)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
-                @foreach (var food in Model.NzFoodFiles)
-                {
-                    <ul>
-                        <li>Name: @food.ShortName</li>
-                        <li>Energy: @food.Energy</li>
-                        <li>Carbohydrates: @food.Carbohydrates</li>
-                        <li>Sugar: @food.Sugar</li>
-                        <li>Protein: @food.Protein</li>
-                        <li>Fat: @food.Fat</li>
-                        <li>Saturated Fat:@food.SaturatedFat</li>
-                        <li>Sodium: @food.Sodium</li>
-                    </ul>
-                }
+            }
+
+            <hr /><h4>Custom Food</h4><hr />
+            @if (Model.CustomFood is null)
+            {
+                <h4>The records are empty</h4>
+            }
+            else
+            {
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].ShortName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Energy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Carbohydrates)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Sugar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Protein)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Fat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].SaturatedFat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Sodium)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CustomFood)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShortName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Energy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Carbohydrates)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sugar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Protein)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SaturatedFat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sodium)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
             }
         </div>
     </div>

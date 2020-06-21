@@ -8,50 +8,41 @@ using FoodFilesSoftwareAssignment.Pages.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Authorization;
 
 namespace FoodFilesSoftwareAssignment
 {
-     
-    public class SelectFoodModel : IdentityUserDetails
+    public class SelectCustomFoodModel : IdentityUserDetails
     {
         private readonly IUserData _userData;
         private readonly ICalorieCountData _calorieCountData;
         private readonly IUserFoodData _userFoodData;
-        private readonly INzFoodFilesData _nzFoodFilesData;
+        private readonly ICustomFoodData _customFoodData;
 
-
-
-        public List<SelectListItem> NzFoodFiles { get; set; }
-
+        public List<SelectListItem> CustomFood { get; set; }
 
         [BindProperty]
         public UserFoodModel UserFood { get; set; }
 
 
 
-        public SelectFoodModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
+        public SelectCustomFoodModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, ICustomFoodData customFoodData)
         {
             _userData = userData;
             _calorieCountData = calorieCountData;
             _userFoodData = userFoodData;
-            _nzFoodFilesData = nzFoodFilesData;
+            _customFoodData = customFoodData;
         }
-
-
-
         public async Task OnGet()
         {
-            var food = await _nzFoodFilesData.GetAllFood();
+            var food = await _customFoodData.GetAllCustomFood();
 
-            NzFoodFiles = new List<SelectListItem>();
+            CustomFood = new List<SelectListItem>();
 
             food.ForEach(x =>
             {
-                NzFoodFiles.Add(new SelectListItem { Value = x.FoodId, Text = x.ShortName });
+                CustomFood.Add(new SelectListItem { Value = x.CustomFoodId.ToString(), Text = x.ShortName });
             });
         }
-
 
         public async Task<IActionResult> OnPost()
         {
@@ -63,7 +54,7 @@ namespace FoodFilesSoftwareAssignment
             UserFood.UserId = UserId;
             UserFood.Date = TodayDate;
 
-            await _userFoodData.InsertFood(UserFood);
+            await _userFoodData.InsertCustomFood(UserFood);
 
             return RedirectToPage("../DashBoard");
         }

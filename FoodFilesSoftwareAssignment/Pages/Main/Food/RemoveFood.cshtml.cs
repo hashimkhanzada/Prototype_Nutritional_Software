@@ -15,31 +15,24 @@ namespace FoodFilesSoftwareAssignment
     [Authorize]
     public class RemoveFoodModel : IdentityUserDetails
     {
-        private readonly IUserData _userData;
-        private readonly ICalorieCountData _calorieCountData;
         private readonly IUserFoodData _userFoodData;
-        private readonly INzFoodFilesData _nzFoodFilesData;
 
-        //working on this page
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
 
-        [BindProperty]
         public List<UserFoodModel> UserFood { get; set; }
-        [BindProperty]
-        public List<NzFoodFilesModel> NzFoodFiles { get; set; }
 
-        public RemoveFoodModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData)
+        public RemoveFoodModel(IUserFoodData userFoodData)
         {
-            _userData = userData;
-            _calorieCountData = calorieCountData;
             _userFoodData = userFoodData;
-            _nzFoodFilesData = nzFoodFilesData;
         }
 
-        public async Task<IActionResult> OnGet()
-        {
-            UserFood = await _userFoodData.GetUserFoodByIdAndDate(UserId, TodayDate);
 
-            return Page();
+        public async Task<IActionResult> OnPost()
+        {
+            await _userFoodData.DeleteUserFood(Id);
+
+            return RedirectToPage("../DashBoard");
         }
     }
 }
