@@ -29,7 +29,7 @@ namespace DataLibrary.Data
                                                             _connectionString.SqlConnectionName); //gets the connection string based on the name, from appsettings.json
         }
 
-        public async Task GetUserByUserId(string Id) //this method hasn't been used
+        public async Task<UserModel> GetUserByUserId(string Id) //this method hasn't been used
         {
             //LoadData<T, U> and SaveData<T> are from IDataAccess (sqldb)
             var recs = await _dataAccess.LoadData<UserModel, dynamic>("dbo.spUser_GetByUserId", //select user based on who's logged in
@@ -38,6 +38,8 @@ namespace DataLibrary.Data
                     Id //this will be the userId of the user logged in
                 },
                 _connectionString.SqlConnectionName);
+
+            return recs.FirstOrDefault();
         }
 
         public async Task CreateUserDetails(UserModel user) // creates new user/inserts data into user table

@@ -8,6 +8,6 @@ namespace DataLibrary.Data
     {
         Task CreateUserDetails(UserModel user);
         Task<List<UserModel>> GetUser();
-        Task GetUserByUserId(string Id);
+        Task<UserModel> GetUserByUserId(string Id);
     }
 }
