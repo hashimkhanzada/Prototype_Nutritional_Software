@@ -20,13 +20,12 @@ namespace FoodFilesSoftwareAssignment
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
-        public List<UserFoodModel> UserFood { get; set; }
+        public UserFoodModel UserFood { get; set; }
 
         public RemoveFoodModel(IUserFoodData userFoodData)
         {
             _userFoodData = userFoodData;
         }
-
 
         public async Task<IActionResult> OnPost()
         {

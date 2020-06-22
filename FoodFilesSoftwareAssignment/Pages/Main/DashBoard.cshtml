@@ -32,34 +32,48 @@
             else
             {
                 <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal<br />
-                //this is just to display the data, was used to test outputs
-                @*<strong>ID:</strong> @Model.CalorieCount.CountId<br />
-                <strong>Date:</strong> @Model.CalorieCount.Date<br />
-                <strong>FoodID:</strong> @Model.CalorieCount.UserFoodId<br />
-                <strong>User RecipeID:</strong> @Model.CalorieCount.UserRecipeId<br />
-                <strong>Calories Consumed:</strong> @Model.CalorieCount.CaloriesConsumed<br />*@
             }
         </div>
         <div class="col-xl-9">
-            <hr /><h4>Details</h4>
-            <hr />
-            @if (Model.UserFood is null)
+
+            <h4>Details</h4>
+            @if (Model.UserFood is null) //asdasdadasdadasdasdasdadasd
             {
                 <strong>The records are empty</strong>
             }
             else
             {
-                @foreach (var userFood in Model.UserFood)
-                {
-                    <ul>
-                        <li>Quantity: @userFood.Quantity</li>
-                        <li><a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Delete</a></li>
-                    </ul>
-                }
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserFood[0].Quantity)
+                            </th>
+                            <th>
+                                Remove Food Item
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var userFood in Model.UserFood)
+                        {
+                            <tr>
+                                <td>
+                                    @userFood.Quantity
+                                </td>
+                                <td>
+                                    <a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Remove</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
             }
 
+
             <hr /><h4 class="d-inline">NZ Food</h4><a href="/Main/Food/SelectFood" class="btn btn-primary float-xl-right" role="button">Select Food (NZ FOOD FILES)</a><hr />
-            @if (Model.NzFoodFiles is null)
+            @if (Model.NzFoodFiles is null) //asdsadasdasdasdasd
             {
                 <h4>The records are empty</h4>
             }
@@ -129,6 +143,8 @@
                 </table>
 
             }
+
+
 
             <hr /><h4 class="d-inline">Custom Food</h4><a href="/Main/Food/SelectCustomFood" class="btn btn-primary float-xl-right" role="button">Select Food (USER CUSTOM FOODS)</a><hr />
             @if (Model.CustomFood is null)

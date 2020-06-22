@@ -38,7 +38,6 @@ namespace FoodFilesSoftwareAssignment
 
         [BindProperty]
         public CalorieCountModel SelectedDate { get; set; }
-        public List<DashboardDisplayModel> DisplayFood { get; set; }
 
 
         public DashBoardModel(IUserData userData, ICalorieCountData calorieCountData, IUserFoodData userFoodData, INzFoodFilesData nzFoodFilesData, ICustomFoodData customFoodData)
@@ -68,7 +67,6 @@ namespace FoodFilesSoftwareAssignment
 
             NzFoodFiles = new List<NzFoodFilesModel>();
             CustomFood = new List<CustomFoodModel>();
-            DisplayFood = new List<DashboardDisplayModel>();
 
 
             if (CalorieCount is null) //creates new entry each time a user logs in, calorie goal is based on the goal from the last user entry
@@ -119,8 +117,6 @@ namespace FoodFilesSoftwareAssignment
                     saturatedFat += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().SaturatedFat;
                     sodium += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Sodium;
 
-
-
                     CustomFood.AddRange(customfood);
                 }
 
@@ -149,19 +145,39 @@ namespace FoodFilesSoftwareAssignment
 
             foreach (var item in UserFood)
             {
-                string currentFoodId = item.FoodId;
+                if (item.FoodId != null)
+                {
+                    string currentFoodId = item.FoodId;
 
-                var food = await _nzFoodFilesData.GetNzFoodByFoodId(currentFoodId);
+                    var food = await _nzFoodFilesData.GetNzFoodByFoodId(currentFoodId);
 
-                caloriesConsumed += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Energy;
-                carbohydrates += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Carbohydrates;
-                sugar += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sugar;
-                protein += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Protein;
-                fat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Fat;
-                saturatedFat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().SaturatedFat;
-                sodium += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sodium;
+                    caloriesConsumed += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Energy;
+                    carbohydrates += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Carbohydrates;
+                    sugar += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sugar;
+                    protein += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Protein;
+                    fat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Fat;
+                    saturatedFat += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().SaturatedFat;
+                    sodium += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sodium;
 
-                NzFoodFiles.AddRange(food);
+                    NzFoodFiles.AddRange(food);
+                }
+
+                else if (item.CustomFoodId.ToString() != null)
+                {
+                    int currentFoodId = item.CustomFoodId;
+
+                    var customfood = await _customFoodData.GetCustomFoodByFoodId(currentFoodId);
+
+                    caloriesConsumed += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Energy;
+                    carbohydrates += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Carbohydrates;
+                    sugar += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Sugar;
+                    protein += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Protein;
+                    fat += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Fat;
+                    saturatedFat += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().SaturatedFat;
+                    sodium += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Sodium;
+
+                    CustomFood.AddRange(customfood);
+                }
             }
 
             return Page();
