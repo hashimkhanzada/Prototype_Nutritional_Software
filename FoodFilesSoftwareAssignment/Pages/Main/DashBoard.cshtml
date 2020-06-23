@@ -33,12 +33,6 @@
             else
             {
                 <strong>Calorie Goal:</strong> @Model.CalorieCount.CalorieGoal<br />
-                //this is just to display the data, was used to test outputs
-                @*<strong>ID:</strong> @Model.CalorieCount.CountId<br />
-            <strong>Date:</strong> @Model.CalorieCount.Date<br />
-            <strong>FoodID:</strong> @Model.CalorieCount.UserFoodId<br />
-            <strong>User RecipeID:</strong> @Model.CalorieCount.UserRecipeId<br />
-            <strong>Calories Consumed:</strong> @Model.CalorieCount.CaloriesConsumed<br />*@
             }
 
             <br />
@@ -47,13 +41,29 @@
         <div class="col-xl-9">
             <hr /><h4>Details</h4>
             <hr />
-            @if (Model.UserFood is null)
+            @if (Model.UserFoodNz is null)
             {
                 <strong>The records are empty</strong>
             }
             else
             {
-                @foreach (var userFood in Model.UserFood)
+                @foreach (var userFood in Model.UserFoodNz)
+                {
+                    <ul>
+                        <li>Quantity: @userFood.Quantity</li>
+                        <li><a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Delete</a></li>
+                    </ul>
+                }
+            }
+            <hr /><h4>Details 2</h4>
+            <hr />
+            @if (Model.UserFoodCustom is null)
+            {
+                <strong>The records are empty</strong>
+            }
+            else
+            {
+                @foreach (var userFood in Model.UserFoodCustom)
                 {
                     <ul>
                         <li>Quantity: @userFood.Quantity</li>

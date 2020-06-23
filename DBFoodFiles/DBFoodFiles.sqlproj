@@ -85,6 +85,8 @@
     <Build Include="dbo\Stored Procedures\spCustomFood_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spCustomFood_GetFood_ByFoodId.sql" />
     <Build Include="dbo\Stored Procedures\spUserFood_InsertCustomFood.sql" />
+    <Build Include="dbo\Stored Procedures\spUserFood_GetNzFood.sql" />
+    <Build Include="dbo\Stored Procedures\spUserFood_GetCustom.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DBFoodFiles.refactorlog" />

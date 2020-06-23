@@ -31,7 +31,13 @@ namespace FoodFilesSoftwareAssignment
         public List<UserFoodModel> UserFood { get; set; }
 
         [BindProperty]
+        public List<UserFoodModel> UserFoodCustom { get; set; }
+
+        [BindProperty]
         public List<NzFoodFilesModel> NzFoodFiles { get; set; }
+
+        [BindProperty]
+        public List<UserFoodModel> UserFoodNz { get; set; }
 
         [BindProperty]
         public List<CustomFoodModel> CustomFood { get; set; }
@@ -65,6 +71,8 @@ namespace FoodFilesSoftwareAssignment
             //gets data based on today's date
             CalorieCount = await _calorieCountData.GetCalorieCountByIdAndDate(UserId, TodayDate); //gets data from the caloriecount table based on userId and date, then inserts it into CalorieCount (instance of caloriecount model)
             UserFood = await _userFoodData.GetUserFoodByIdAndDate(UserId, TodayDate);
+            UserFoodNz = await _userFoodData.GetNzFoodUserFood(UserId, TodayDate);
+            UserFoodCustom = await _userFoodData.GetCustomUserFood(UserId, TodayDate);
 
 
             NzFoodFiles = new List<NzFoodFilesModel>();

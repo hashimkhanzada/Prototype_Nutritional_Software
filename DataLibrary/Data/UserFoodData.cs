@@ -31,6 +31,28 @@ namespace DataLibrary.Data
                 _connectionString.SqlConnectionName);
         }
 
+        public Task<List<UserFoodModel>> GetCustomUserFood(string UserId, DateTime Date)
+        {
+            return _dataAccess.LoadData<UserFoodModel, dynamic>("dbo.spUserFood_GetCustom",
+                new
+                {
+                    Id = UserId,
+                    Date
+                },
+                _connectionString.SqlConnectionName);
+        }
+
+        public Task<List<UserFoodModel>> GetNzFoodUserFood(string UserId, DateTime Date)
+        {
+            return _dataAccess.LoadData<UserFoodModel, dynamic>("dbo.spUserFood_GetNzFood",
+                new
+                {
+                    Id = UserId,
+                    Date
+                },
+                _connectionString.SqlConnectionName);
+        }
+
         public async Task InsertFood(UserFoodModel userFood)
         {
             DynamicParameters p = new DynamicParameters();
