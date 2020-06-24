@@ -98,6 +98,6 @@ div.login-form-icon {
     text-align: center;
 }
 
-.width-75 {
-    width: 75%;
+.container {
+    max-width: 100% !important;
 }
