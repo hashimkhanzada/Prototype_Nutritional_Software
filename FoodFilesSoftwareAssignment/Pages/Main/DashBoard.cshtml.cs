@@ -171,6 +171,22 @@ namespace FoodFilesSoftwareAssignment
 
             NzFoodFiles = new List<NzFoodFilesModel>();
 
+            var currentUser = await _userData.GetUserByUserId(UserId);
+            var userGender = currentUser.Gender;
+            if (userGender == "Male")
+            {
+                dailyIntake = 2500;
+            }
+            else if (userGender == "Female")
+            {
+                dailyIntake = 2000;
+            }
+            else
+            {
+                dailyIntake = 2250;
+            }
+
+
             foreach (var item in UserFood)
             {
                 string currentFoodId = item.FoodId;
