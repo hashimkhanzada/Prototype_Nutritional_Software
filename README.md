@@ -28,7 +28,11 @@ The SQL Database should be published now
 ## Migration
 
 1. Tools --> NuGet Package Manager --> NuGet Package Manager Console
-2. Type, EntityFrameworkCore\Update-Database
+2. Type
+```
+EntityFrameworkCore\Update-Database
+```
+
 3. Press enter
 
 You should now be able to use the application
