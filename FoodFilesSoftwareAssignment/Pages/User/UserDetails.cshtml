@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="UserDetails.Gender" class="control-label font-weight-bold">Gender:</label>
-                    <input asp-for="UserDetails.Gender" class="form-control" />
+                    <select asp-for="UserDetails.Gender" asp-items="Model.GenderSelect" class="form-control"></select>
                     <span asp-validation-for="UserDetails.Gender" class="text-danger"></span>
                 </div>
             </div>

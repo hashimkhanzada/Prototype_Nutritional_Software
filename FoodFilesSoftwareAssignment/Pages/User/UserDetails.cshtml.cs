@@ -25,12 +25,22 @@ namespace FoodFilesSoftwareAssignment
         [BindProperty]
         public CalorieCountModel InitialUserCalories { get; set; } //instance of caloriecountModel. Initial user data that will be inserted into the calorie count table when registering
 
+        public List<SelectListItem> GenderSelect { get; set; }
 
         //constructor
         public CreateUserModel(IUserData userData, ICalorieCountData calorieCountData)
         {
             _userData = userData;
             _calorieCountData = calorieCountData;
+        }
+
+        public void OnGet()
+        {
+            GenderSelect = new List<SelectListItem>();
+
+            GenderSelect.Add(new SelectListItem() { Text = "Male", Value = "Male" });
+            GenderSelect.Add(new SelectListItem() { Text = "Female", Value = "Female" });
+
         }
 
         public async Task<IActionResult> OnPost()
