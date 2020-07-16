@@ -80,20 +80,23 @@ namespace FoodFilesSoftwareAssignment
             DisplayFood = new List<DashboardDisplayModel>();
 
             var currentUser = await _userData.GetUserByUserId(UserId);
-            var userGender = currentUser.Gender;
-            if(userGender == "Male")
-            {
-                dailyIntake = 2500;
+            
+            if (currentUser.Gender != null) 
+            { 
+                var userGender = currentUser.Gender;
+                if(userGender == "Male")
+                {
+                    dailyIntake = 2500;
+                }
+                else if(userGender == "Female")
+                {
+                    dailyIntake = 2000;
+                }
+                else
+                {
+                    dailyIntake = 2250;
+                }
             }
-            else if(userGender == "Female")
-            {
-                dailyIntake = 2000;
-            }
-            else
-            {
-                dailyIntake = 2250;
-            }
-
 
 
             if (CalorieCount is null) //creates new entry each time a user logs in, calorie goal is based on the goal from the last user entry

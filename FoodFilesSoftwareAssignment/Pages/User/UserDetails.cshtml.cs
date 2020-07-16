@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using DataLibrary.Data;
 using DataLibrary.Models;
+using FoodFilesSoftwareAssignment.Models;
 using FoodFilesSoftwareAssignment.Pages.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -36,10 +37,12 @@ namespace FoodFilesSoftwareAssignment
 
         public void OnGet()
         {
-            GenderSelect = new List<SelectListItem>();
-
-            GenderSelect.Add(new SelectListItem() { Text = "Male", Value = "Male" });
-            GenderSelect.Add(new SelectListItem() { Text = "Female", Value = "Female" });
+            
+            GenderSelect = new List<SelectListItem>
+            {
+                new SelectListItem() { Text = "Male", Value = "Male" },
+                new SelectListItem() { Text = "Female", Value = "Female" }
+            };
 
         }
 

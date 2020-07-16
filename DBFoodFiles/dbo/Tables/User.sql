@@ -9,6 +9,6 @@
     [Weight] DECIMAL NOT NULL,
     [Age] INT NOT NULL, 
     [Gender] NVARCHAR(10) NOT NULL, 
-    [ActivityLevel] NVARCHAR(50) NOT NULL, 
+    [ActivityLevel] NVARCHAR(50) NULL, 
     [MedicalConditions] NVARCHAR(MAX) NULL
 )

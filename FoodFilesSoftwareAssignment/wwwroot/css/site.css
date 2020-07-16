@@ -99,5 +99,5 @@ div.login-form-icon {
 }
 
 .container {
-    max-width: 100% !important;
+    width: 100vw;
 }
