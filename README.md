@@ -5,7 +5,7 @@ The purpose of this project is to provide users an application they can use to l
 
 # Description
 1. Users can register and log in, microsoft identity is used to set up this system
-2. There's an initial register page where user details are entered, those details are used to calculate the user's TDEE (total daily energy intake)
+2. There's an initial register page where user details are entered, those details are used to calculate the user's TDEE (total daily energy expenditure)
 3. The dashboard contains information about the food the user has logged in, as well as the user's calorie/macro intake for that day.
 4. The user can search for food intake data pertaining to a particular day using the calendar input provided below.
 5. The user can display food data on the dashboard, the primary source of food data is from the official NzFoodFiles documents, which are automatically inserted when the database project is published. Users can select those food items, and display them.
