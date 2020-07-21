@@ -130,6 +130,7 @@ namespace FoodFilesSoftwareAssignment
                     sodium += item.Quantity * food.Where(x => x.FoodId == item.FoodId).First().Sodium;
 
                     NzFoodFiles.AddRange(food);
+
                 }
 
                 else if (item.CustomFoodId.ToString() != null)
@@ -146,12 +147,11 @@ namespace FoodFilesSoftwareAssignment
                     saturatedFat += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().SaturatedFat;
                     sodium += item.Quantity * customfood.Where(x => x.CustomFoodId == item.CustomFoodId).First().Sodium;
 
-
-
                     CustomFood.AddRange(customfood);
                 }
 
             }
+
 
 
 

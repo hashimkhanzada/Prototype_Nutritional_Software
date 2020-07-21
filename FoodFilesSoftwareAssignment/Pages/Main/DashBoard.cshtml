@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-2">
+        <div class="col-3">
             <hr /><h4>Totals</h4><hr />
             <strong>Carbohydrates:</strong> @Model.carbohydrates<br />
             <strong>Sugar:</strong> @Model.sugar<br />
@@ -38,7 +38,7 @@
             <br />
             <strong>Recommended Daily Intake:</strong> @Model.dailyIntake<br />
         </div>
-        <div class="col-10">
+        <div class="col-9">
 
 
             <div class="row">
@@ -51,87 +51,83 @@
                     else
                     {
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].ShortName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].Energy)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].Carbohydrates)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].Sugar)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].Protein)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].Fat)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].SaturatedFat)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NzFoodFiles[0].Sodium)
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.NzFoodFiles)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ShortName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Energy)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Carbohydrates)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Sugar)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Protein)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Fat)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.SaturatedFat)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Sodium)
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].ShortName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Energy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Carbohydrates)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Sugar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Protein)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Fat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].SaturatedFat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NzFoodFiles[0].Sodium)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserFoodNz[0].Quantity)
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{var mergedNzUser = Model.NzFoodFiles.Zip(Model.UserFoodNz, (n, w) => new { NzFoodFiles = n, UserFoodNz = w });}
 
-                    }
-                </div>
-
-                <div class="col-2">
-                    <hr /><h4>Details (Nz Food)</h4>
-                    <hr /><hr />
-                    @if (Model.UserFoodNz is null)
-                    {
-                        <strong>The records are empty</strong>
-                    }
-                    else
-                    {
-                        @foreach (var userFood in Model.UserFoodNz)
+                        @foreach (var item in mergedNzUser)
                         {
-                            <ul>
-                                <li>Quantity: @userFood.Quantity</li>
-                                <li><a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Delete</a></li>
-                            </ul>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.ShortName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.Energy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.Carbohydrates)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.Sugar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.Protein)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.Fat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.SaturatedFat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NzFoodFiles.Sodium)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserFoodNz.Quantity)
+                                </td>
+                                <td>
+                                    <a asp-page="./Food/RemoveFood" asp-route-id="@item.UserFoodNz.UserFoodId">Delete</a>
+                                </td>
+                            </tr>
                         }
+                    </tbody>
+                </table>
+
                     }
                 </div>
 
@@ -149,94 +145,88 @@
                     else
                     {
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].ShortName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].Energy)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].Carbohydrates)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].Sugar)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].Protein)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].Fat)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].SaturatedFat)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CustomFood[0].Sodium)
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.CustomFood)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ShortName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Energy)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Carbohydrates)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Sugar)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Protein)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Fat)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.SaturatedFat)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Sodium)
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-
-                    }
-                </div>
-
-                <div class="col-2">
+                <table class="table">
+                    @{var mergedCustomUser = Model.CustomFood.Zip(Model.UserFoodCustom, (n, w) => new { CustomFood = n, UserFoodCustom = w });}
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].ShortName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Energy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Carbohydrates)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Sugar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Protein)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Fat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].SaturatedFat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomFood[0].Sodium)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserFoodNz[0].Quantity)
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
 
-                    <hr /><h4>Details (Custom Food)</h4>
-                          <hr />
-                    @if (Model.UserFoodCustom is null)
-                    {
-                        <strong>The records are empty</strong>
-                    }
-                    else
-                    {
-                        @foreach (var userFood in Model.UserFoodCustom)
+                        @foreach (var item in mergedCustomUser)
                         {
-                            <ul>
-                                <li>Quantity: @userFood.Quantity</li>
-                                <li><a asp-page="./Food/RemoveFood" asp-route-id="@userFood.UserFoodId">Delete</a></li>
-                            </ul>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.ShortName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.Energy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.Carbohydrates)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.Sugar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.Protein)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.Fat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.SaturatedFat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomFood.Sodium)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserFoodCustom.Quantity)
+                                </td>
+                                <td>
+                                    <a asp-page="./Food/RemoveFood" asp-route-id="@item.UserFoodCustom.UserFoodId">Delete</a>
+                                </td>
+                            </tr>
                         }
+                    </tbody>
+                </table>
+
                     }
                 </div>
+
             </div>
 
-            
         </div>
     </div>
 </div>
